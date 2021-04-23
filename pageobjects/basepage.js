@@ -1,8 +1,8 @@
 const {Capabilities, until, By} = require('selenium-webdriver');
 var webdriver = require('selenium-webdriver');
-const caps = new Capabilities();
-caps.setPageLoadStrategy("normal");
-var driver = new webdriver.Builder().forBrowser('chrome').build();
+// const caps = new Capabilities();
+// caps.setPageLoadStrategy("normal");
+var driver = new webdriver.Builder().forBrowser('firefox').build();
 
 
 class BasePage {
