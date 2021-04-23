@@ -38,8 +38,7 @@ describe('Check login functionality', async function(){
         await password.sendKeys('tswhybridtest');
         var loginBtn = (await homePg.find_element_css('button[data-testid="login"]'));
         await loginBtn.click();
-        console.log('btn clicked');
-        await homePg.driver.sleep(2000);
+        await homePg.driver.sleep(1000);
         var success_msg =  (await homePg.find_element_xpath('//div[@class="MuiAlert-message"]'));
         var msg = await success_msg.getText();
         assert.strictEqual(msg , 'Log in successful');
@@ -53,8 +52,7 @@ describe('Check login functionality', async function(){
        await password.sendKeys('tswhybridtet');
        var loginBtn = (await homePg.find_element_css('button[data-testid="login"]'));
        await loginBtn.click();
-       console.log('btn clicked');
-      await homePg.driver.sleep(2000);
+      await homePg.driver.sleep(1000);
        var success_msg =  (await homePg.find_element_xpath('//div[@class="MuiAlert-message"]'));
         var msg = await success_msg.getText();
         assert.strictEqual(msg , 'Login failed');
