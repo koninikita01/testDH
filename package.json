@@ -1,0 +1,21 @@
+{
+  "name": "selenium",
+  "version": "1.0.0",
+  "description": "Selenium ",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikita Koni",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
+    "mochawesome": "^6.2.2",
+    "selenium-webdriver": "^4.0.0-beta.3"
+  }
+}

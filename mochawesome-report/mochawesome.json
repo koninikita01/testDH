@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-04-22T16:35:15.995Z",
+    "end": "2021-04-22T16:35:24.191Z",
+    "duration": 8196,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "900f109b-8c90-4409-bb7d-cb73556f7a51",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6156e616-c40a-47b2-9a87-4b12acd877f3",
+          "title": "Check login functionality",
+          "fullFile": "D:\\Work2021\\Workspace\\digital-hybrid\\selenium\\test\\Test001.js",
+          "file": "\\test\\Test001.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Check login functionality\"",
+              "fullTitle": "Check login functionality \"before each\" hook in \"Check login functionality\"",
+              "timedOut": false,
+              "duration": 179,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var baseURL='https://dighybprstaging.z6.web.core.windows.net/';\nawait homePg.go_to_url(baseURL);    \nawait homePg.driver.manage().window().maximize();",
+              "err": {},
+              "uuid": "6a9378a5-d3bd-48fd-a926-0ee811731f85",
+              "parentUUID": "6156e616-c40a-47b2-9a87-4b12acd877f3",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Check login functionality\"",
+              "fullTitle": "Check login functionality \"after each\" hook in \"Check login functionality\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "setTimeout(async () => {\n    await homePg.driver.close();\n    // await (await homePg.driver).quit();\n}, 4000);",
+              "err": {},
+              "uuid": "a54d2bf3-529b-43f9-aff4-42b41b418b46",
+              "parentUUID": "6156e616-c40a-47b2-9a87-4b12acd877f3",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "valid credentials",
+              "fullTitle": "Check login functionality valid credentials",
+              "timedOut": false,
+              "duration": 2826,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await homePg.go_to_url(baseURL);\nvar username =  await homePg.find_element_id('username');\nawait username.sendKeys('nikita.k1@client');\nvar password = await homePg.find_element_id('password');\nawait password.sendKeys('tswhybridtest');\nvar loginBtn = (await homePg.find_element_css('button[data-testid=\"login\"]'));\nawait loginBtn.click();\nconsole.log('btn clicked');\nawait homePg.driver.sleep(2000);\nvar success_msg =  (await homePg.find_element_xpath('//div[@class=\"MuiAlert-message\"]'));\nvar msg = await success_msg.getText();\nassert.strictEqual(msg , 'Log in successful');",
+              "err": {},
+              "uuid": "9e8f6717-23c3-4b39-ad5a-d466a2e98ec7",
+              "parentUUID": "6156e616-c40a-47b2-9a87-4b12acd877f3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "invalid credentials",
+              "fullTitle": "Check login functionality invalid credentials",
+              "timedOut": false,
+              "duration": 2334,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "var username =  await homePg.find_element_id('username');\n       await username.sendKeys('nikita.k1@client');\n       var password = await homePg.find_element_id('password');\n       await password.sendKeys('tswhybridtet');\n       var loginBtn = (await homePg.find_element_css('button[data-testid=\"login\"]'));\n       await loginBtn.click();\n       console.log('btn clicked');\n      await homePg.driver.sleep(2000);\n       var success_msg =  (await homePg.find_element_xpath('//div[@class=\"MuiAlert-message\"]'));\nvar msg = await success_msg.getText();\nassert.strictEqual(msg , 'Login failed');",
+              "err": {
+                "message": "AssertionError: expected 'Log in successful' to equal 'Login failed'",
+                "estack": "AssertionError: expected 'Log in successful' to equal 'Login failed'\n    at Context.<anonymous> (test\\Test001.js:59:16)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)",
+                "diff": "- Log in successful\n+ Login failed\n"
+              },
+              "uuid": "9f1af74c-803a-4057-89f0-e0667c7941c0",
+              "parentUUID": "6156e616-c40a-47b2-9a87-4b12acd877f3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9e8f6717-23c3-4b39-ad5a-d466a2e98ec7"
+          ],
+          "failures": [
+            "9f1af74c-803a-4057-89f0-e0667c7941c0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 5160,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.3.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}
