@@ -30,9 +30,9 @@ jobs:
       - name: Install
         run: yarn
       - name: install chromedriver
-        run: apt-get install unzip
+        run: sudo apt-get install unzip
       - name : chromedriver
-        run: wget https://chromedriver.storage.googleapis.com/index.html?path=90.0.4430.24/chromedriver_linux64.zip -P ~/Downloads
+        run: wget -N https://chromedriver.storage.googleapis.com/index.html?path=90.0.4430.24/chromedriver_linux64.zip -P ~/Downloads
       - name: download
         run: unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
       - name: executable
