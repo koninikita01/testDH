@@ -40,7 +40,7 @@ jobs:
       - name: sii
         run: chmod +x /usr/local/share/chromedriver
       - name : set path
-        run : export PATH=$PATH:/usr/local/share/chromedriver
+        run : PATH=$PATH:/usr/local/share/chromedriver
       - name: path check
         run: echo $PATH
       - name: Test
