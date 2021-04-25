@@ -30,15 +30,15 @@ jobs:
       - name: Install
         run: yarn
       - name: install chromedriver
-        run: sudo apt-get install unzip
+        run: apt-get install unzip
       - name : chromedriver
         run: https://chromedriver.storage.googleapis.com/index.html?path=90.0.4430.24/chromedriver_linux64.zip -P ~/Downloads
       - name: download
         run: unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
       - name: executable
-        run: sudo mv -f ~/Downloads/chromedriver /usr/local/share/
+        run: mv -f ~/Downloads/chromedriver /usr/local/share/
       - name: sii
-        run: sudo chmod +x /usr/local/share/chromedriver
+        run: chmod +x /usr/local/share/chromedriver
       - name : set path
         run : export PATH=$PATH:/usr/local/share/chromedriver
       - name: Test
