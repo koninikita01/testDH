@@ -34,7 +34,7 @@ jobs:
       - name : chromedriver
         run: wget -N https://chromedriver.storage.googleapis.com/index.html?path=90.0.4430.24/chromedriver_linux64.zip -P ~/Downloads
       - name: download
-        run: unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
+        run: unzip ~/Downloads/index.html?path=90.0.4430.24%2Fchromedriver_linux64.zip -d ~/Downloads
       - name: executable
         run: mv -f ~/Downloads/chromedriver /usr/local/share/
       - name: sii
