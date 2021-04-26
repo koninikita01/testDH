@@ -36,7 +36,7 @@ jobs:
       - name: download
         run: unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
       - name: sii
-        run: chmod a+rx /github/home/Downloads/chromedriver
+        run: chmod 755 /github/home/Downloads/chromedriver
       - name: path check
         run: echo $PATH
       - name: path check
@@ -46,7 +46,7 @@ jobs:
       - name: run ch 
         run : cd /github/home/Downloads
       - name: ls cmd
-        run: ls -d
+        run: ls
       - name: chrm
         run : ./chromedriver
       - name: Test
