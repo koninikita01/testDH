@@ -1,14 +1,1 @@
-name: check_passed_value
 
-on: 
-  push:
-    branches:
-      - master
-  pull_request:
-
-jobs:
-  check_passed_value:
-    runs-on: ubuntu-latest
-    steps:
-      - name: check export value of carried parameter
-        run: echo $PARAM
