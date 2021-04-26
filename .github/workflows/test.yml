@@ -45,7 +45,7 @@ jobs:
         run: chmod 755 /github/home/Downloads/chromeDriver/
       - name: executable
         run: mv -f /github/home/Downloads/chrome/chromeDriver 
-      - name: sii
+      #- name: sii
         #run: chmod 755 /usr/local/share/chromedriver
       - name: path check
         run: echo $PATH
@@ -54,11 +54,11 @@ jobs:
         #run : echo "/usr/local/share/chromedriver" >> $GITHUB_PATH
       - name: path check
         run: echo $PATH
-      - name: run ch 
+      #- name: run ch 
         #run : cd /usr/local/share/chromedriver
-      - name: ls cmd
+      #- name: ls cmd
         #run: ls -la
-      - name: chrm
+      #- name: chrm
         #run : ./chromedriver
       - name: Test
         run: npx mocha --reporter mochawesome test/*
