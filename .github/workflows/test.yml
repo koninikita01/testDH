@@ -61,10 +61,25 @@ jobs:
       #- name: chrm
         #run : ./chromedriver
       #- name: Test
-       # run: npx mocha --reporter mochawesome test/*
-      - name: export PARAM=awesome
+       # run: npx mocha --reporter mochawesome test/*     
+      - shell: bash
         run: |
-          export PARAM=awesome
-          echo "::set-env name=PARAM::$PARAM"
-      - name: check PARAM value
-        run: echo $PARAM
+          expr awesome > output.txt
+      - name: Upload data to next job
+        uses: actions/upload-artifact@v2
+        with:
+          name: data
+          path: output.txt
+     
+  check_passed_param:
+    needs: deploy_ui
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download data from deploy_ui
+        uses: actions/download-artifact@v2
+        with:
+          name: data
+      - shell: bash
+        run: |
+          value=`cat output.txt`
+          echo $value
