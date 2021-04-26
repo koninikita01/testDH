@@ -43,5 +43,9 @@ jobs:
         run : echo "/github/home/Downloads/chromedriver" >> $GITHUB_PATH
       - name: path check
         run: echo $PATH
+      - name: run ch 
+        run : cd /github/home/Downloads/chromedriver
+      - name: chrm
+        run : ./chromedriver
       - name: Test
         run: npx mocha --reporter mochawesome test/*
