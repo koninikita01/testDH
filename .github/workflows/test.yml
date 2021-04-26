@@ -46,6 +46,8 @@ jobs:
       - name : set path
         run : export PATH=$PATH:/usr/local/share/chromedriver
       - name: path check
+        run : echo "{path}" >> $/usr/local/share/chromedriver
+      - name: path check
         run: echo $PATH
       - name: Test
         run: npx mocha --reporter mochawesome test/*
