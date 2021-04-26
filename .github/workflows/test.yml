@@ -29,14 +29,18 @@ jobs:
         uses: actions/checkout@v1.2.0
       - name: Install
         run: yarn
+      - name: check runtime path
+        run: pwd
+      - name: list home path
+        run: eval echo ~$USER
       - name: install chromedriver
         run: apt-get install unzip
-      - name : chromedriver
+      - name: download chromedriver
         run: wget -N https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -P /github/home/Downloads
-      - name: download
+      - name: unzip to folder
         run: unzip /github/home/Downloads/chromedriver_linux64.zip -d /github/home/Downloads/chrome
-      - name : check
-        run: cd /github/home/Downloads/chrome
+      - name : check unzip folder
+        run: cd /github/home/Downloads/chrome &&
       - name: permission
         run: chmod 755 /github/home/Downloads/chrome
       - name: content
