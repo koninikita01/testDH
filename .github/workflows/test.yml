@@ -39,6 +39,8 @@ jobs:
         run: mv -f ~/Downloads/chromedriver /usr/local/share/
       - name: sii
         run: chmod +x /usr/local/share/chromedriver
+      - name: path check
+        run: echo $PATH
       - name : set path
         run : export PATH=$PATH:"/usr/local/share/chromedriver"
       - name: path check
