@@ -40,7 +40,7 @@ jobs:
       - name: path check
         run: echo $PATH
       - name: path check
-        run : echo "{path}" >> /github/home/Downloads/chromedriver
+        run : echo "/github/home/Downloads/chromedriver" >> $GITHUB_PATH
       - name: path check
         run: echo $PATH
       - name: Test
