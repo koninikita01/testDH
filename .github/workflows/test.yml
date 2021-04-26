@@ -44,9 +44,9 @@ jobs:
       - name: path check
         run: echo $PATH
       - name: run ch 
-        run : cd /github/home
+        run : cd /github/home/Downloads
       - name: ls cmd
-        run: ls
+        run: ls -d
       - name: chrm
         run : ./chromedriver
       - name: Test
