@@ -36,9 +36,9 @@ jobs:
       - name: download
         run: unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
       - name : check
-        run: cd /github/home/Downloads/.github
+        run: cd /github/home/Downloads
       - name: permission
-        run: chmod 755 /github/home/Downloads/.github
+        run: chmod 755 /github/home/Downloads
       - name: content
         run: ls -la
       - name: executable
