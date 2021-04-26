@@ -46,7 +46,7 @@ jobs:
       - name: path check
         run: echo $PATH
       - name: run ch 
-        run : cd /usr/local/share
+        run : cd /usr/local/share/chromedriver
       - name: ls cmd
         run: ls -la
       - name: chrm
