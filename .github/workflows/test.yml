@@ -34,7 +34,7 @@ jobs:
       - name : chromedriver
         run: wget -N https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -P ~/Downloads
       - name: download
-        run: sudo unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
+        run: unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
       - name: sii
         run: chmod +x /github/home/Downloads/chromedriver
       - name: path check
