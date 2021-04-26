@@ -71,7 +71,7 @@ jobs:
           name: data
           path: output.txt
      
-  check_passed_param:
+  verify_param_from_previous_job:
     needs: deploy_ui
     runs-on: ubuntu-latest
     steps:
