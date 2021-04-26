@@ -42,7 +42,7 @@ jobs:
       - name: path check
         run: echo $PATH
       - name : set path
-        run : export PATH="/usr/local/share/chromedriver:$PATH"
+        run : export PATH=$PATH:/usr/local/share/chromedriver
       - name: path check
         run: echo $PATH
       - name: Test
