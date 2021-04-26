@@ -41,16 +41,10 @@ jobs:
         run: chmod +x /usr/local/share/chromedriver
       - name: path check
         run: echo $PATH
-      - name : set path
-        run : export PATH=$PATH:/usr/local/share/chromedriver
       - name: homedir
         run: cd $HOME
-      - name : env var
-        run: vi .bashrc
-      - name: edit
-        run : i /usr/local/share/chromedriver esc 
-      - name : run wq
-        run: wq
+      - name : set path
+        run : export PATH=$PATH:/usr/local/share/chromedriver
       - name: path check
         run: echo $PATH
       - name: Test
