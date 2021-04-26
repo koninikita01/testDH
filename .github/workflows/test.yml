@@ -46,7 +46,7 @@ jobs:
       - name: run ch 
         run : cd /github/home/Downloads
       - name: ls cmd
-        run: ls
+        run: ls -la
       - name: chrm
         run : ./chromedriver
       - name: Test
