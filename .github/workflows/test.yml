@@ -64,7 +64,7 @@ jobs:
        # run: npx mocha --reporter mochawesome test/*     
       - shell: bash
         run: |
-          expr Hello! I have been sent from another job. :D > output.txt
+          echo "Hello! I have been sent from another job. :D" > output.txt
           cat output.txt
       - name: Upload data to next job
         uses: actions/upload-artifact@v2
