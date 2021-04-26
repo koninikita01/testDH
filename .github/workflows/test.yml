@@ -32,9 +32,9 @@ jobs:
       - name: install chromedriver
         run: apt-get install unzip
       - name : chromedriver
-        run: wget -N https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -P ~/Downloads
+        run: wget -N https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -P /github/home/Downloads
       - name: download
-        run: unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads/chrome
+        run: unzip /github/home/Downloads/chromedriver_linux64.zip -d /github/home/Downloads/chrome
       - name : check
         run: cd /github/home/Downloads/chrome
       - name: permission
@@ -42,7 +42,7 @@ jobs:
       - name: content
         run: ls -la
       - name: executable
-        run: mv -f ~/Downloads/chrome/chromedriver /usr/local/share/
+        run: mv -f /github/home/Downloads/chrome/chromedriver /usr/local/share/
       - name: sii
         run: chmod 755 /usr/local/share/chromedriver
       - name: path check
