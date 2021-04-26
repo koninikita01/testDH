@@ -35,16 +35,18 @@ jobs:
         run: wget -N https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -P ~/Downloads
       - name: download
         run: unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
+      - name: executable
+        run: mv -f ~/Downloads/chromedriver /usr/local/share/
       - name: sii
-        run: chmod 755 /github/home/Downloads/chromedriver
+        run: chmod 755 /usr/local/share/chromedriver
       - name: path check
         run: echo $PATH
       - name: path check
-        run : echo "/github/home/Downloads/chromedriver" >> $GITHUB_PATH
+        run : echo "/usr/local/share/chromedriver" >> $GITHUB_PATH
       - name: path check
         run: echo $PATH
       - name: run ch 
-        run : cd /github/home/Downloads
+        run : cd /usr/local/share
       - name: ls cmd
         run: ls -la
       - name: chrm
