@@ -1,13 +1,14 @@
-name: Greetings
+name: check_passed_value
 
-on: [pull_request, issues]
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
-  greeting:
+  check_passed_value:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/first-interaction@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'Message that will be displayed on users first issue'
-        pr-message: 'Message that will be displayed on users first pull request'
+      - name: check export value of carried parameter
+        run: echo $PARAM
