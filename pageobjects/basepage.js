@@ -7,7 +7,7 @@ options.addArguments('disable-inforbars');
 options.addArguments('--headless');
 options.addArguments('--disable-extensions')
 options.addArguments('--disable-dev-shm-usage');
-options.setChromeBinaryPath('/github/home/Downloads/chromeDriver');
+options.setChromeBinaryPath('/github/home/Downloads/chromeDriver/chromedriver.exe');
 
 const caps = new Capabilities();
 caps.setPageLoadStrategy("normal");
