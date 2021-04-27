@@ -4,6 +4,7 @@ let ch = require('selenium-webdriver/chrome');
 const chromedriver = require('chromedriver');  
 ch_options = new ch.setDefaultService(new ch.ServiceBuilder('resources\\chromedriver').build());
 
+
 let options = new ch.Options().headless();
 options.addArguments('start-fullscreen');
 options.addArguments('disable-inforbars');
