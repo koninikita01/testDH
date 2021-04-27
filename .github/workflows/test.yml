@@ -59,6 +59,8 @@ jobs:
         run: echo $PATH
       - name: export chromeDriver to $PATH
         run: echo "/github/home/Downloads/chromeDriver" >> $GITHUB_PATH
+      - name: export chromeDriver to $PATH
+        run: echo "/__w/testDH/testDH/resources" >> $GITHUB_PATH
       - name: echo $path 
         run: echo $PATH
       - name : pwd
