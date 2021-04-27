@@ -65,7 +65,7 @@ jobs:
       #- name: ls cmd
         #run: ls -la
       - name: launch chrome
-        run : ./chromedriver.exe
+        run : chromedriver.exe
       - name: Test
         run: npx mocha --reporter mochawesome test/*     
       
