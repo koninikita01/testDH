@@ -35,8 +35,8 @@ jobs:
         run : apt install openjdk-8-jdk -y
       - name: check if java installed
         run: java -version
-      - name: check runtime path
-        run: pwd
+      - name: added 755 for all folders underneath
+        run: chmod 755 /__w/testDH/testDH/
       - name: list home path
         run: eval echo ~$USER
       - name: install unzip
