@@ -3,7 +3,7 @@ var webdriver = require('selenium-webdriver');
 let ch = require('selenium-webdriver/chrome');
 const chromedriver = require('chromedriver');  
 //newly added
-ch_options = new ch.setDefaultService(new ch.ServiceBuilder(process.cwd()+''\\resources\\chromedriver').build());
+ch_options = new ch.setDefaultService(new ch.ServiceBuilder(process.cwd()+'\\resources\\chromedriver').build());
 
 
 let options = new ch.Options().headless();
