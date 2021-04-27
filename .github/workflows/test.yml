@@ -32,7 +32,7 @@ jobs:
       - name: update apt
         run: apt update
       - name : install java 8
-        run : apt install openjdk-8-jdk
+        run : apt install openjdk-8-jdk -y
       - name: check if java installed
         run: java -version
       - name: check runtime path
