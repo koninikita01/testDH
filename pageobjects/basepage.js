@@ -6,7 +6,7 @@ options.addArguments('start-fullscreen');
 options.addArguments('disable-inforbars');
 options.addArguments('--headless');
 options.addArguments('--disable-extensions')
-chromeOptions.add_argument('--remote-debugging-port=9222')  
+options.add_argument('--remote-debugging-port=9222')  
 options.setChromeBinaryPath('/github/home/Downloads/chromeDriver/');
 
 const caps = new Capabilities();
