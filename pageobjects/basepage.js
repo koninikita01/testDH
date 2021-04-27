@@ -5,6 +5,7 @@ var options = new ch.Options();
 options.addArguments('start-fullscreen');
 options.addArguments('disable-inforbars');
 options.addArguments('headless');
+options.setChromeBinaryPath('/github/home/Downloads/chromeDriver');
 
 const caps = new Capabilities();
 caps.setPageLoadStrategy("normal");
