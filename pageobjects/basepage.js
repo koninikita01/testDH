@@ -2,7 +2,7 @@ const {Capabilities, until, By} = require('selenium-webdriver');
 var webdriver = require('selenium-webdriver');
 let ch = require('selenium-webdriver/chrome');
 const chromedriver = require('chromedriver');  
-ch_options = new ch.setDefaultService(new ch.ServiceBuilder('resources\\chromedriver').build());
+ch_options = new ch.setDefaultService(new ch.ServiceBuilder(process.cwd()+'/resources/chromedriver').build());
 
 
 let options = new ch.Options().headless();
