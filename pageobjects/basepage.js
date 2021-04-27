@@ -9,8 +9,6 @@ options.addArguments('--disable-extensions')
 options.addArguments('--remote-debugging-port=9222')  
 options.setChromeBinaryPath('/usr/local/bin/chromeDriver');
 
-
-
 const caps = new Capabilities();
 caps.setPageLoadStrategy("normal");
 var driver = new webdriver.Builder().setChromeOptions(options).forBrowser('chrome').build();
@@ -35,3 +33,4 @@ async go_to_url(baseURL)
 module.exports = BasePage;
 
 //export PATH=$PATH:"/usr/local/share/chromedriver" 
+
