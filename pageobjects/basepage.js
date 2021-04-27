@@ -8,7 +8,7 @@ options.addArguments('--headless');
 options.addArguments('--disable-extensions')
 options.addArguments('--remote-debugging-port=9222')  
 //options.setChromeBinaryPath('/usr/local/bin/chromeDriver');
-options.setChromeBinaryPath('/github/home/Downloads/chromeDriver');
+// options.setChromeBinaryPath('/github/home/Downloads/chromeDriver');
 
 const caps = new Capabilities();
 caps.setPageLoadStrategy("normal");
