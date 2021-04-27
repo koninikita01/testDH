@@ -29,10 +29,10 @@ jobs:
         uses: actions/checkout@v1.2.0
       - name: Install
         run: yarn
-      - name : install jre
-        run: apt install openjdk-8-jre
-      - name : check java -v
-        run : java -version
+      - name: update apt
+        run: apt update
+      - name: check if jaba installed
+        run: java -version
       - name: check runtime path
         run: pwd
       - name: list home path
