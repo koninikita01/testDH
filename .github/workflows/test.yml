@@ -49,8 +49,8 @@ jobs:
         run: cd /github/home/Downloads/chromeDriver/ && ls -al
       - name: add 755 permission & list path
         run: chmod 755 /github/home/Downloads/chromeDriver/ && ls -al
-      - name: executable
-        run: mv -f /github/home/Downloads/chromeDriver /usr/local/bin/chromeDriver
+#       - name: executable
+#         run: mv -f /github/home/Downloads/chromeDriver /usr/local/bin/chromeDriver
       #- name: sii
         #run: chmod 755 /usr/local/share/chromedriver
       - name: echo $PATH
