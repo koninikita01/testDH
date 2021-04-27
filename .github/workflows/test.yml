@@ -1,11 +1,11 @@
-name: CI
+name: deploy_ui
 on:
   push:
     branches:
       - master
   pull_request:
 jobs:
-  build:
+  deploy_ui:
     runs-on: ubuntu-latest
     container:
       image: node:14.4
@@ -29,5 +29,76 @@ jobs:
         uses: actions/checkout@v1.2.0
       - name: Install
         run: yarn
+      - name: update apt
+        run: apt update
+      - name : install java 8
+        run : apt install openjdk-8-jdk -y
+      - name: check if java installed
+        run: java -version
+      - name: check runtime path
+        run: pwd
+      - name: list home path
+        run: eval echo ~$USER
+      - name: install unzip
+        run: apt-get install unzip
+      - name: download chromedriver
+        run: wget -N https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -P /github/home/Downloads
+      - name: unzip to folder
+        run: unzip /github/home/Downloads/chromedriver_linux64.zip -d /github/home/Downloads/chromeDriver/
+      - name : check unzip folder & list path
+        run: cd /github/home/Downloads/chromeDriver/ && ls -al
+      - name: add 755 permission & list path
+        run: chmod 755 /github/home/Downloads/chromeDriver/ && ls -al
+#       - name: executable
+#         run: mv -f /github/home/Downloads/chromeDriver /usr/local/bin/chromeDriver
+      #- name: sii
+        #run: chmod 755 /usr/local/share/chromedriver
+      - name: echo $PATH
+        run: echo $PATH
+      - name: export chromeDriver to $PATH
+        run: echo "/github/home/Downloads/chromeDriver" >> $GITHUB_PATH
+      - name: echo $path 
+        run: echo $PATH
       - name: Test
-        run: npx mocha --reporter mochawesome test/*
+        run: npx mocha --reporter mochawesome test/*     
+      
+      - shell: bash
+        run: |
+          echo "Hello! :D" > text.txt
+          cat text.txt
+      - name: Upload text to next job
+        uses: actions/upload-artifact@v2
+        with:
+          name: text
+          path: text.txt
+      - shell: bash
+        # echo ${{ steps.get-terraform-outputs.outputs.website-endpoint }} >> url.txt
+        run: |
+          echo "https://dighybprfe83084.blob.core.windows.net/$web/login/index.html" >> url.txt
+          cat url.txt
+      - name: Upload url to next job
+        uses: actions/upload-artifact@v2
+        with:
+          name: url
+          path: url.txt
+     
+  verify_param_from_previous_job:
+    needs: deploy_ui
+    runs-on: ubuntu-latest
+    steps:
+      - name: Load artifact - text
+        uses: actions/download-artifact@v2
+        with:
+          name: text
+      - shell: bash
+        run: |
+          value=`cat text.txt`
+          echo $value
+      - name: Load artifact - url
+        uses: actions/download-artifact@v2
+        with:
+          name: url
+      - shell: bash
+        run: |
+          url=`cat url.txt`
+          echo $url
