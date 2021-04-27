@@ -73,8 +73,9 @@ jobs:
           name: text
           path: text.txt
       - shell: bash
+        # echo ${{ steps.get-terraform-outputs.outputs.website-endpoint }} >> url.txt
         run: |
-          echo ${{ steps.get-terraform-outputs.outputs.website-endpoint }} >> url.txt
+          echo "https://dighybprfe83084.blob.core.windows.net/$web/login/index.html" >> url.txt
           cat url.txt
       - name: Upload url to next job
         uses: actions/upload-artifact@v2
