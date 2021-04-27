@@ -2,7 +2,6 @@ const {Capabilities, until, By} = require('selenium-webdriver');
 var webdriver = require('selenium-webdriver');
 let ch = require('selenium-webdriver/chrome');
 const chromedriver = require('chromedriver');  
-//newly added
 ch_options = new ch.setDefaultService(new ch.ServiceBuilder(process.cwd()+'/resources/chromedriver').build());
 
 
@@ -12,6 +11,7 @@ options.addArguments('disable-inforbars');
 options.addArguments('--headless');
 options.addArguments('--disable-extensions')
 options.addArguments('--remote-debugging-port=9222') ;
+
 
 const caps = new Capabilities();
 caps.setPageLoadStrategy("normal");
