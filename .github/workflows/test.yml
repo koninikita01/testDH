@@ -30,7 +30,9 @@ jobs:
       - name: Install
         run: yarn
       - name : install jre
-        run: apt-get install default-jre
+        run: apt install openjdk-8-jre
+      - name : check java -v
+        run : java -version
       - name: check runtime path
         run: pwd
       - name: list home path
