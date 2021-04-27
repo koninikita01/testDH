@@ -64,23 +64,33 @@ jobs:
         run: npx mocha --reporter mochawesome test/*     
       - shell: bash
         run: |
-          echo "Hello! I have been sent from another job. :D" > output.txt
-          cat output.txt
-      - name: Upload data to next job
+          echo "Hello! :D" > text.txt
+          cat text.txt
+          echo ${{ steps.get-terraform-outputs.outputs.website-endpoint }} >> url.txt
+          cat url.txt
+      - name: Upload text to next job
         uses: actions/upload-artifact@v2
         with:
-          name: data
-          path: output.txt
+          name: text
+          path: text.txt
+      - name: Upload url to next job
+        uses: actions/upload-artifact@v2
+        with:
+          name: url
+          path: url.txt
      
   verify_param_from_previous_job:
     needs: deploy_ui
     runs-on: ubuntu-latest
     steps:
-      - name: Download data from deploy_ui
+      - name: Read text from file
         uses: actions/download-artifact@v2
         with:
-          name: data
+          name: text
       - shell: bash
         run: |
-          value=`cat output.txt`
+          value=`cat text.txt`
           echo $value
+      - name: Read URL from file
+        id: geturl
+        run: echo "::set-output name=url::$(cat url.txt)"
