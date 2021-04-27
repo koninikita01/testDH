@@ -67,8 +67,6 @@ jobs:
         run : pwd
       - name : ls -la  
         run : ls -la
-      - name : run yarn
-        run : apt install --no-install-recommends yarn
       - name: Test
         run: npx mocha --reporter mochawesome test/*     
       
