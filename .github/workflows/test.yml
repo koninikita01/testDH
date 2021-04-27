@@ -62,17 +62,20 @@ jobs:
         #run : ./chromedriver
       #- name: Test
        # run: npx mocha --reporter mochawesome test/*     
+      
       - shell: bash
         run: |
           echo "Hello! :D" > text.txt
           cat text.txt
-          echo ${{ steps.get-terraform-outputs.outputs.website-endpoint }} >> url.txt
-          cat url.txt
       - name: Upload text to next job
         uses: actions/upload-artifact@v2
         with:
           name: text
           path: text.txt
+      - shell: bash
+        run: |
+          echo ${{ steps.get-terraform-outputs.outputs.website-endpoint }} >> url.txt
+          cat url.txt
       - name: Upload url to next job
         uses: actions/upload-artifact@v2
         with:
@@ -83,7 +86,7 @@ jobs:
     needs: deploy_ui
     runs-on: ubuntu-latest
     steps:
-      - name: Read text from file
+      - name: Load artifact - text
         uses: actions/download-artifact@v2
         with:
           name: text
@@ -91,6 +94,10 @@ jobs:
         run: |
           value=`cat text.txt`
           echo $value
-      - name: Read URL from file
+      - name: Load artifact - url
+        uses: actions/download-artifact@v2
+        with:
+          name: url
+      - name: Read url from file
         id: geturl
         run: echo "::set-output name=url::$(cat url.txt)"
