@@ -2,8 +2,7 @@ const {Capabilities, until, By} = require('selenium-webdriver');
 var webdriver = require('selenium-webdriver');
 let ch = require('selenium-webdriver/chrome');
 const chromedriver = require('chromedriver');  
-ch_options = new ch.setDefaultService(new ch.ServiceBuilder('node_modules\\chromedriver\\lib\\chromedriver\\chromedriver.exe').build());
-
+ch_options = new ch.setDefaultService(new ch.ServiceBuilder('resources\\chromedriver').build());
 
 let options = new ch.Options().headless();
 options.addArguments('start-fullscreen');
@@ -11,6 +10,7 @@ options.addArguments('disable-inforbars');
 options.addArguments('--headless');
 options.addArguments('--disable-extensions')
 options.addArguments('--remote-debugging-port=9222') ;
+
 
 const caps = new Capabilities();
 caps.setPageLoadStrategy("normal");
