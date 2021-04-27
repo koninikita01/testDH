@@ -31,8 +31,6 @@ jobs:
         run: yarn
       - name: update apt
         run: apt update
-      - name: check if java installed
-        run: java --version
       - name : install java 8
         run : apt install openjdk-8-jdk
       - name: check if java installed
