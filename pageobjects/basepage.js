@@ -7,13 +7,16 @@ options.addArguments('disable-inforbars');
 options.addArguments('--headless');
 options.addArguments('--disable-extensions')
 options.addArguments('--remote-debugging-port=9222')  
-options.setChromeBinaryPath('/github/home/Downloads/chromeDriver');
+//options.setChromeBinaryPath('/usr/local/bin/chromeDriver');
+// options.setChromeBinaryPath('/github/home/Downloads/chromeDriver');
 
 const caps = new Capabilities();
 caps.setPageLoadStrategy("normal");
 let driver = new webdriver.Builder().setChromeOptions(options).forBrowser('chrome').build();
 
-
+// var driver = manager.chromedriver().setup();
+//  var d = new manager.Builder().
+ //new manager.chrome.browserVersion("90.0.4430.24").setup();
 class BasePage {
 constructor()
 {
@@ -29,3 +32,6 @@ async go_to_url(baseURL)
 
 
 module.exports = BasePage;
+
+//export PATH=$PATH:"/usr/local/share/chromedriver" 
+
