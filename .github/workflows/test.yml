@@ -65,8 +65,8 @@ jobs:
         run: echo $PATH
       - name : pwd
         run : pwd
-      - name : ls -la  
-        run : ls -la
+      - name : cd resources && ls -la
+        run : cd resources && ls -la
       - name: Test
         run: npx mocha --reporter mochawesome test/*     
       
