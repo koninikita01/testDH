@@ -4,9 +4,9 @@ var ch = require('selenium-webdriver/chrome');
 var options = new ch.Options();
 options.addArguments('start-fullscreen');
 options.addArguments('disable-inforbars');
-options.addArguments('headless');
-options.addArguments("--no-sandbox");
-options.addArguments("--disable-dev-shm-usage");
+options.addArguments('--headless');
+options.addArguments('--disable-extensions')
+options.addArguments('--disable-dev-shm-usage');
 options.setChromeBinaryPath('/github/home/Downloads/chromeDriver');
 
 const caps = new Capabilities();
