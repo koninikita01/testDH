@@ -29,6 +29,8 @@ jobs:
         uses: actions/checkout@v1.2.0
       - name: Install
         run: yarn
+      - name : install jre
+        run: apt-get install default-jre
       - name: check runtime path
         run: pwd
       - name: list home path
