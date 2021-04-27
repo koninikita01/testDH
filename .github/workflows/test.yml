@@ -62,8 +62,8 @@ jobs:
         #run: ls -la
       #- name: chrm
         #run : ./chromedriver
-      #- name: Test
-       # run: npx mocha --reporter mochawesome test/*     
+      - name: Test
+        run: npx mocha --reporter mochawesome test/*     
       
       - shell: bash
         run: |
