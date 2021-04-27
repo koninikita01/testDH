@@ -57,15 +57,10 @@ jobs:
         run: echo $PATH
       - name: export chromeDriver to $PATH
         run: echo "/github/home/Downloads/chromeDriver" >> $GITHUB_PATH
-        #run : echo "/usr/local/share/chromedriver" >> $GITHUB_PATH
       - name: echo $path 
         run: echo $PATH
-      - name: navgate to chromedriver
-        run : cd /github/home/Downloads/chromeDriver
-      #- name: ls cmd
-        #run: ls -la
       - name: launch chrome
-        run : chromedriver.exe
+        run : /github/home/Downloads/chromeDriver/chromedriver.exe
       - name: Test
         run: npx mocha --reporter mochawesome test/*     
       
