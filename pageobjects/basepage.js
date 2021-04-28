@@ -2,7 +2,7 @@ const {Capabilities, until, By} = require('selenium-webdriver');
 var webdriver = require('selenium-webdriver');
 let ch = require('selenium-webdriver/chrome');
 const chromedriver = require('chromedriver');  
-ch_options = new ch.setDefaultService(new ch.ServiceBuilder('/__w/testDH/testDH/resources').build());
+//ch_options = new ch.setDefaultService(new ch.ServiceBuilder('/__w/testDH/testDH/resources').build());
 
 
 let options = new ch.Options().headless();
@@ -11,10 +11,10 @@ options.addArguments('disable-inforbars');
 options.addArguments('--headless');
 options.addArguments('--disable-extensions')
 options.addArguments('--remote-debugging-port=9222') ;
+//options.setChromeBinaryPath('/__w/testDH/testDH/resources');
 
-
-const caps = new Capabilities();
-caps.setPageLoadStrategy("normal");
+// const caps = new Capabilities();
+// caps.setPageLoadStrategy("normal");
 let driver = new webdriver.Builder().setChromeOptions(options).forBrowser('chrome').build();
 
 class BasePage {
