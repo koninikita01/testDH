@@ -41,7 +41,7 @@ jobs:
         run: apt-get install unzip
       - name: download chromedriver
         run: wget -N https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -P /github/home/Downloads
-      - name: unzip to folder
+      - name: unzip to Downloads folder
         run: unzip /github/home/Downloads/chromedriver_linux64.zip -d /github/home/Downloads/chromeDriver/
       - name : check unzip folder & list path
         run: cd /github/home/Downloads/chromeDriver/ && ls -al
@@ -59,12 +59,12 @@ jobs:
         run: echo $PATH
       - name: export chromeDriver to $PATH
         run: echo "/github/home/Downloads/chromeDriver" >> $GITHUB_PATH
-      - name: export chromeDriver to $PATH
-        run: echo "/__w/testDH/testDH/resources" >> $GITHUB_PATH
+      #- name: export resources folder to $PATH
+       # run: echo "/__w/testDH/testDH/resources" >> $GITHUB_PATH
+      - name: export runtime folder to $PATH
+        run: echo "/__w/testDH/testDH" >> $GITHUB_PATH
       - name: echo $path 
         run: echo $PATH
-      - name : pwd
-        run : pwd
       - name: Test
         run: npx mocha --reporter mochawesome test/*     
       
