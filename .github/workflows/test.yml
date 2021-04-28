@@ -32,7 +32,7 @@ jobs:
       - name: update apt
         run: apt update
       #- name : install java 8
-       # run : apt install openjdk-8-jdk -y
+       # run : apt-get install openjdk-8-jre-headless -y
       #- name: check if java installed
        # run: java -version
       - name: list home path
@@ -47,8 +47,8 @@ jobs:
         run: cd /github/home/Downloads/chromeDriver/ && ls -al
       - name: add 755 permission for Downloads & list path
         run: chmod 755 /github/home/Downloads && ls -al /github/home/Downloads
-      - name: install chromeDriver
-        run: npm install --save-dev chromedriver
+#       - name: install chromeDriver
+#         run: npm install --save-dev chromedriver
 #       - name: added 755 for all folders underneath
 #         run: chmod 755 /__w/testDH/testDH/
       - name: add 777 for test project
@@ -67,6 +67,16 @@ jobs:
         run: echo "/__w/testDH/testDH" >> $GITHUB_PATH
       - name: echo $path 
         run: echo $PATH
+      - name : npm install on root dir
+        run : cd /__w/testDH/testDH/ && apt install npm
+      - name : add selenium folder 
+        run : mkdir selenium ~/selenium && cd ~/selenium
+      - name: install sel
+        run: wget https://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar
+      - name: starting sel
+        run: echo "\r\nStarting up Selenium server ...\r\n"
+      - name : selenium server
+        run: DISPLAY=:1 xvfb-run java -jar ~/selenium/selenium-server-standalone-3.4.0.jar
       - name: Test
         run: npx mocha --full-trace ./test/Test001.js
         #run: npx mocha --full-trace --reporter mochawesome test/*      
