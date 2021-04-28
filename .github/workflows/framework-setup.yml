@@ -1,8 +1,5 @@
-name: browserstack-runners
+name: framework-setup
 on: 
-  push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
