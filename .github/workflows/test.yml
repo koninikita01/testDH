@@ -49,8 +49,9 @@ jobs:
         run: chmod 755 /github/home/Downloads/chromeDriver/ && ls -al
 #       - name: added 755 for all folders underneath
 #         run: chmod 755 /__w/testDH/testDH/
-      - name: added -r  for all folders underneath
+      - name: added -r for all folders underneath
         run: chmod -R a+rwx /__w/testDH/testDH/
+          ls -al ~/
 #       - name: executable
 #         run: mv -f /github/home/Downloads/chromeDriver /usr/local/bin/chromeDriver
       #- name: sii
@@ -66,8 +67,7 @@ jobs:
       - name: echo $path 
         run: echo $PATH
       - name: Test
-        run: npx mocha --reporter mochawesome test/* --full-trace
-      
+        run: npx mocha --full-trace --reporter mochawesome test/*      
       - shell: bash
         run: |
           echo "Hello! :D" > text.txt
