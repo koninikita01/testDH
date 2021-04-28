@@ -25,8 +25,8 @@ jobs:
 #           HUB_HOST: hub
 #           HUB_PORT: 4444
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1.2.0
+#       - name: Checkout
+#         uses: actions/checkout@v1.2.0
       - name: Install
         run: yarn
       - name: update apt
@@ -70,7 +70,8 @@ jobs:
       - name : yarn install on root dir
         run : cd /__w/testDH/testDH/ && yarn install
       - name : sel install
-        run : npx selenium-standalone install && npx selenium-standalone start
+        run : npx selenium-standalone start
+#         run : npx selenium-standalone install && npx selenium-standalone start
 #       - name : give permission 755
 #         run :  chmod 755 /github/home/.npm
 #       - name : start sel
