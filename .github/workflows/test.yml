@@ -86,7 +86,7 @@ jobs:
 #         run: DISPLAY=:1 xvfb-run java -jar ~/selenium/selenium-server-standalone-3.4.0.jar
     
       - name: Test
-        run: npx mocha --full-trace test/Test001.js
+        run: npx mocha --reporter mochawesome /__w/testDH/testDH/test/Test001.js
         #run: npx mocha --full-trace --reporter mochawesome test/*      
       - shell: bash
         run: |
