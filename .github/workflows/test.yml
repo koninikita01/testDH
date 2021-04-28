@@ -67,8 +67,8 @@ jobs:
         run: echo "/__w/testDH/testDH" >> $GITHUB_PATH
       - name: echo $path 
         run: echo $PATH
-      - name : yarn install on project root dir
-        shell : |
+      - name: yarn install on project root dir
+        run: |
           cd /__w/testDH/testDH && pwd && yarn install
           cat package.json
       - name : sel install && start
