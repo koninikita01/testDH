@@ -1,8 +1,11 @@
 name: framework-setup
 on: 
+  push:
+    branches:
+      - patch-2
   pull_request:
     branches:
-      - cdumitras84-patch1
+      - patch-2
 jobs:
   test_build:
     runs-on: ubuntu-latest
