@@ -1,8 +1,8 @@
 name: framework-setup
 on: 
-  push:
+  pull_request:
     branches:
-      - 'cdumitras84-patch-1'
+      - master
 jobs:
   test_build:
     runs-on: ubuntu-latest
@@ -26,12 +26,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1.2.0
-      - name: Install
-        run: yarn
-      - name: update apt
-        run: apt update
       - name : install java 8
-        run : apt-get install openjdk-8-jre-headless -y
+        run : apt update && apt-get install openjdk-8-jre-headless -y
       - name: download chromedriver
         run: |
          wget -N https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -P /github/home/Downloads
@@ -41,9 +37,9 @@ jobs:
         run: |
          cd /__w/testDH/testDH
          chmod 777 /__w/testDH/testDH/ && ls -al
-      - name: export chromeDriver to $PATH
+      - name: add resources folder to $PATH
         run: echo "/__w/testDH/testDH/resources" >> $GITHUB_PATH
-      - name: export runtime folder to $PATH
+      - name: add runtime folder to $PATH
         run: echo "/__w/testDH/testDH" >> $GITHUB_PATH
       - name: echo $path 
         run: echo $PATH
