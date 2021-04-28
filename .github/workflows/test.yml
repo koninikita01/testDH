@@ -50,8 +50,7 @@ jobs:
 #       - name: added 755 for all folders underneath
 #         run: chmod 755 /__w/testDH/testDH/
       - name: added -r for all folders underneath
-        run: chmod -R a+rwx /__w/testDH/testDH/
-          ls -al ~/
+        run: chmod -R a+rwx /__w/testDH/testDH/ && ls -al ~/
 #       - name: executable
 #         run: mv -f /github/home/Downloads/chromeDriver /usr/local/bin/chromeDriver
       #- name: sii
