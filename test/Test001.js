@@ -13,19 +13,27 @@ describe('Check login functionality', async function(){
     var baseURL='https://dighybprstaging.z6.web.core.windows.net/';
     beforeEach(async function()
     
-    {  
+    {  try{
         var baseURL='https://dighybprstaging.z6.web.core.windows.net/';
         await homePg.go_to_url(baseURL);    
-        await homePg.driver.manage().window().maximize();        
+        await homePg.driver.manage().window().maximize();     }
+      catch (error)
+        {
+            console.error(error); }
+     
     });
 
 
     afterEach(async function()
     {
+        try{
         setTimeout(async () => {
             await homePg.driver.close();
             // await (await homePg.driver).quit();
-        }, 4000);
+        }, 4000); }
+        catch (error)
+        {
+            console.error(error) ;}
      
     });
     
