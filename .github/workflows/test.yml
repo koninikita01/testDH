@@ -69,8 +69,9 @@ jobs:
         run: echo $PATH
       - name: yarn install on project root dir
         run: |
-          cd /__w/testDH/testDH && pwd && yarn install
-          cat package.json
+          cd /__w/testDH/testDH && yarn install
+          pwd
+          ls -al && cat ./package.json
       - name : sel install && start
         run : npx selenium-standalone install && npx selenium-standalone start
 #         run : npx selenium-standalone install && npx selenium-standalone start
