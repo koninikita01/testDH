@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - master
-  pull_request:
+#  pull_request:
 jobs:
   deploy_ui:
     runs-on: ubuntu-latest
