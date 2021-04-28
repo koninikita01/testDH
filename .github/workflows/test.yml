@@ -52,7 +52,7 @@ jobs:
 #       - name: added 755 for all folders underneath
 #         run: chmod 755 /__w/testDH/testDH/
       - name: add chmod -R a+rwx for test project
-        run: chmod 755 /__w/testDH/testDH/ && ls -al
+        run: chmod 777 /__w/testDH/testDH/ && ls -al
 #       - name: executable
 #         run: mv -f /github/home/Downloads/chromeDriver /usr/local/bin/chromeDriver
       #- name: sii
@@ -67,8 +67,8 @@ jobs:
         run: echo "/__w/testDH/testDH" >> $GITHUB_PATH
       - name: echo $path 
         run: echo $PATH
-      - name : yarn install on root dir
-        run : cd /__w/testDH/testDH/ && yarn install
+      - name : yarn install on project root dir
+        run : cd /__w/testDH/testDH && pwd && yarn install
       - name : sel install
         run : npx selenium-standalone start
 #         run : npx selenium-standalone install && npx selenium-standalone start
@@ -86,7 +86,7 @@ jobs:
 #         run: DISPLAY=:1 xvfb-run java -jar ~/selenium/selenium-server-standalone-3.4.0.jar
     
       - name: Test
-        run: npx mocha --full-trace ./test/Test001.js
+        run: npx mocha --full-trace test/Test001.js
         #run: npx mocha --full-trace --reporter mochawesome test/*      
       - shell: bash
         run: |
