@@ -69,6 +69,8 @@ jobs:
 #      - name : sel install && start
 #        run : npx selenium-standalone install --silent && npx selenium-standalone start
 #         run : npx selenium-standalone install && npx selenium-standalone start
+      - name : sel start
+        run : npx selenium-standalone start
 #       - name : add selenium folder 
 #         run : mkdir selenium ~/selenium && cd ~/selenium
 #       - name: install sel
