@@ -1,4 +1,4 @@
-name: runners
+name: browserstack-runners
 on: [push, pull_request]
 jobs:
  ubuntu-runner:
