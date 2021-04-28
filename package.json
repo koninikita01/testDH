@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "webdriver-manager start && npx mocha test/Test001.js"
+    "test": ""
   },
   "author": "Nikita Koni",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "chai": "^4.3.4",
     "mocha": "^8.3.2",
     "mochawesome": "^6.2.2",
+    "pm2": "^4.5.6",
     "selenium-webdriver": "^3.6.0",
     "webdriver-manager": "^12.1.8"
   }
