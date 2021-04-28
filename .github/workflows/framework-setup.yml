@@ -2,7 +2,7 @@ name: framework-setup
 on: 
   pull_request:
     branches:
-      - master
+      - cdumitras84-patch1
 jobs:
   test_build:
     runs-on: ubuntu-latest
