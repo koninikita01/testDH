@@ -13,8 +13,8 @@ options.addArguments('--disable-extensions')
 options.addArguments('--remote-debugging-port=9222') ;
 
 
-const caps = new Capabilities();
-caps.setPageLoadStrategy("normal");
+// const caps = new Capabilities();
+// caps.setPageLoadStrategy("normal");
 let driver = new webdriver.Builder().setChromeOptions(options).forBrowser('chrome').build();
 
 class BasePage {
