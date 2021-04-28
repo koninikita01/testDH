@@ -31,10 +31,10 @@ jobs:
         run: yarn
       - name: update apt
         run: apt update
-      - name : install java 8
-        run : apt install openjdk-8-jdk -y
-      - name: check if java installed
-        run: java -version
+      #- name : install java 8
+       # run : apt install openjdk-8-jdk -y
+      #- name: check if java installed
+       # run: java -version
       - name: list home path
         run: eval echo ~$USER
       - name: install unzip
@@ -47,6 +47,8 @@ jobs:
         run: cd /github/home/Downloads/chromeDriver/ && ls -al
       - name: add 755 permission for Downloads & list path
         run: chmod 755 /github/home/Downloads && ls -al /github/home/Downloads
+      - name: install chromeDriver
+        run: npm install --save-dev chromedriver
 #       - name: added 755 for all folders underneath
 #         run: chmod 755 /__w/testDH/testDH/
       - name: add 777 for test project
