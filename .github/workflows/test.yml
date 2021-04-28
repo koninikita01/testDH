@@ -79,7 +79,8 @@ jobs:
 #         run: echo "\r\nStarting up Selenium server ...\r\n"
 #       - name : selenium server
 #         run: DISPLAY=:1 xvfb-run java -jar ~/selenium/selenium-server-standalone-3.4.0.jar
-    
+      - name : run start.sh
+        run : npx pm2 start /__w/testDH/testDH/start.sh
       - name: Test
         run: npx mocha --reporter mochawesome /__w/testDH/testDH/test/Test001.js
         #run: npx mocha --full-trace --reporter mochawesome test/*      
