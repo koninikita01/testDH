@@ -7,17 +7,19 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "webdriver-manager start && npx mocha test/Test001.js"
   },
   "author": "Nikita Koni",
   "license": "ISC",
   "dependencies": {
-    "chromedriver": "^90.0.0"
+    "chromedriver": "^90.0.0",
+    "selenium-standalone": "^6.23.0"
   },
   "devDependencies": {
     "chai": "^4.3.4",
     "mocha": "^8.3.2",
     "mochawesome": "^6.2.2",
-    "selenium-webdriver": "^4.0.0-beta.3"
+    "selenium-webdriver": "^4.0.0-beta.3",
+    "webdriver-manager": "^12.1.8"
   }
 }
