@@ -14,16 +14,16 @@ jobs:
       NODE_ENV: test
       SELENIUM_HUB_HOST: hub
       TEST_HOST: testHost
-    services:
-      hub:
-        image: selenium/hub:3.141.59-gold
-      firefox:
-        image: selenium/node-firefox:3.141.59-gold
-      chrome:
-        image: selenium/node-chrome:4.0.0-beta-3-prerelease-20210422
-        env:
-          HUB_HOST: hub
-          HUB_PORT: 4444
+#     services:
+#       hub:
+#         image: selenium/hub:3.141.59-gold
+#       firefox:
+#         image: selenium/node-firefox:3.141.59-gold
+#       chrome:
+#         image: selenium/node-chrome:4.0.0-beta-3-prerelease-20210422
+#         env:
+#           HUB_HOST: hub
+#           HUB_PORT: 4444
     steps:
       - name: Checkout
         uses: actions/checkout@v1.2.0
@@ -52,7 +52,7 @@ jobs:
 #       - name: added 755 for all folders underneath
 #         run: chmod 755 /__w/testDH/testDH/
       - name: add chmod -R a+rwx for test project
-        run: chmod -R a+rwx /__w/testDH/testDH && ls -al
+        run: chmod -R a+rwx /__w/testDH/testDH/ && ls -al
 #       - name: executable
 #         run: mv -f /github/home/Downloads/chromeDriver /usr/local/bin/chromeDriver
       #- name: sii
