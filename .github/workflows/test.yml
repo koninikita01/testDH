@@ -67,8 +67,8 @@ jobs:
         run: echo "/__w/testDH/testDH" >> $GITHUB_PATH
       - name: echo $path 
         run: echo $PATH
-      - name : npm install on root dir
-        run : cd /__w/testDH/testDH/ && install npm
+      - name : yarn install on root dir
+        run : cd /__w/testDH/testDH/ && yarn install
       - name : sel install
         run : npx selenium-standalone install --save-dev
       - name : start sel
