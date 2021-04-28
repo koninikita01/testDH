@@ -2,10 +2,10 @@ name: browserstack-runners
 on: 
   push:
     branches:
-      - patch-dumitras
+      - master
   pull_request:
     branches:
-      - patch-dumitras
+      - master
 jobs:
   test_build:
     runs-on: ubuntu-latest
