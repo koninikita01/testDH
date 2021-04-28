@@ -66,7 +66,8 @@ jobs:
       - name: echo $path 
         run: echo $PATH
       - name: Test
-        run: npx mocha --full-trace --reporter mochawesome test/*      
+        run: npx mocha --full-trace ./test/Test001.js
+        #run: npx mocha --full-trace --reporter mochawesome test/*      
       - shell: bash
         run: |
           echo "Hello! :D" > text.txt
