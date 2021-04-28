@@ -27,8 +27,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1.2.0
-      #- name: update apt
-       # run: apt update
+      - name: update apt
+        run: apt update
       - name : install java 8
         run : apt-get install openjdk-8-jre-headless -y
       - name: check if java installed
