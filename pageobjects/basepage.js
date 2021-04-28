@@ -11,7 +11,7 @@ options.addArguments('disable-inforbars');
 options.addArguments('--headless');
 options.addArguments('--disable-extensions')
 options.addArguments('--remote-debugging-port=9222') ;
-options.setChromeBinaryPath('/__w/testDH/testDH/resources');
+//options.setChromeBinaryPath('/__w/testDH/testDH/resources');
 
 // const caps = new Capabilities();
 // caps.setPageLoadStrategy("normal");
