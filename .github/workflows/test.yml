@@ -31,8 +31,8 @@ jobs:
         run: yarn
       - name: update apt
         run: apt update
-      #- name : install java 8
-       # run : apt-get install openjdk-8-jre-headless -y
+      - name : install java 8
+        run : apt-get install openjdk-8-jre-headless -y
       #- name: check if java installed
        # run: java -version
       - name: list home path
@@ -70,7 +70,7 @@ jobs:
       - name : yarn install on root dir
         run : cd /__w/testDH/testDH/ && yarn install
       - name : sel install
-        run : npx selenium-standalone install --save-dev
+        run : npx selenium-standalone install
       - name : start sel
         run : npx selenium-standalone start
 #       - name : add selenium folder 
