@@ -44,14 +44,14 @@ jobs:
       - name: unzip to Downloads folder
         run: unzip /github/home/Downloads/chromedriver_linux64.zip -d /github/home/Downloads/chromeDriver/
       - name : check unzip folder & list path
-        run: cd /github/home/Downloads/chromeDriver/ && ls -al
+        run: cd /github/home/Downloads/chromeDriver && ls -al && pwd
       - name: add 755 permission for Downloads & list path
         run: chmod 755 /github/home/Downloads && ls -al /github/home/Downloads
 #       - name: install chromeDriver
 #         run: npm install --save-dev chromedriver
 #       - name: added 755 for all folders underneath
 #         run: chmod 755 /__w/testDH/testDH/
-      - name: add chmod -R a+rwx for test project
+      - name: add chmod 777 for test project
         run: chmod 777 /__w/testDH/testDH/ && ls -al
 #       - name: executable
 #         run: mv -f /github/home/Downloads/chromeDriver /usr/local/bin/chromeDriver
@@ -68,9 +68,11 @@ jobs:
       - name: echo $path 
         run: echo $PATH
       - name : yarn install on project root dir
-        run : cd /__w/testDH/testDH && pwd && yarn install
-      - name : sel install
-        run : npx selenium-standalone start
+        shell : |
+          cd /__w/testDH/testDH && pwd && yarn install
+          cat package.json
+      - name : sel install && start
+        run : npx selenium-standalone install && npx selenium-standalone start
 #         run : npx selenium-standalone install && npx selenium-standalone start
 #       - name : give permission 755
 #         run :  chmod 755 /github/home/.npm
