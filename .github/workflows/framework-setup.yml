@@ -34,7 +34,7 @@ jobs:
       - name: download chromedriver
         run: |
          wget -N https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -P /github/home/Downloads
-         unzip /github/home/Downloads/chromedriver_linux64.zip -d /__w/testDH/testDH/resources/
+         unzip /github/home/Downloads/chromedriver_linux64.zip -o -d /__w/testDH/testDH/resources/
          ls -al /__w/testDH/testDH/resources
       - name: add 777 permission for Downloads & list path
         run: |
