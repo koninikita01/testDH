@@ -45,8 +45,8 @@ jobs:
         run: unzip /github/home/Downloads/chromedriver_linux64.zip -d /github/home/Downloads/chromeDriver/
       - name : check unzip folder & list path
         run: cd /github/home/Downloads/chromeDriver/ && ls -al
-      - name: add 755 permission & list path
-        run: chmod 755 /github/home/Downloads && ls -al
+      - name: add 755 permission for Downloads & list path
+        run: chmod 755 /github/home/Downloads && ls -al /github/home/Downloads
 #       - name: added 755 for all folders underneath
 #         run: chmod 755 /__w/testDH/testDH/
       - name: add 777 for test project
