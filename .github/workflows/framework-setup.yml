@@ -49,7 +49,7 @@ jobs:
         run: echo $PATH
       - name: yarn install on project root dir
         run: |
-          cd /__w/testDH/testDH && yarn install
+          cd /__w/testDH/testDH && yarn update
           pwd
           ls -al && cat ./package.json
       #- name: sel install && start
