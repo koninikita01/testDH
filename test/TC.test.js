@@ -1,11 +1,9 @@
 var webdriver = require('selenium-webdriver');
-var  homepage = require('../pageobjects/homepage')
-var basepage = require('../pageobjects/basepage')
-const{Builder, By, FindElement, Key, until} = require('selenium-webdriver');
+var driver = webdriver.WebDriver;
+const{Builder, By, findElement} = require('selenium-webdriver');
 const assert = require('assert');
-const homePg = homepage;
-const basepg = basepage;
-let driver = webdriver.WebDriver;
+
+jest.setTimeout(10000);
 
 beforeAll(async () => {
   let capabilities= webdriver.Capabilities;
@@ -48,10 +46,11 @@ beforeAll(async () => {
   driver = await new webdriver.Builder()
     .withCapabilities(capabilities)
     .build();
+ 
 });
 
 afterAll(async () => {
-  await driver.quit();
+  (await driver).quit();
 });
 
 it("MVP", async () => {
