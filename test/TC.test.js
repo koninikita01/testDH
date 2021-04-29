@@ -3,7 +3,7 @@ var firefox = require('selenium-webdriver/firefox');
 var driver = webdriver.WebDriver;
 const{Builder, By, findElement} = require('selenium-webdriver');
 const assert = require('assert');
-let options = new firefox.Options();
+var options = new firefox.Options();
 
 jest.setTimeout(10000);
 
@@ -26,7 +26,7 @@ beforeAll(async () => {
       capabilities = webdriver.Capabilities.safari();
       break;
     }
-    
+
     case "firefox": {
       require("geckodriver");
       options.addArguments('start-fullscreen');

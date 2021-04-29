@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test:e2e:firefox": "cross-env BROWSER=firefox npx jest /test/*",
-    "test:e2e:chrome": "cross-env BROWSER=chrome npx jest /test/*"
+    "test:e2e:firefox": "cross-env BROWSER=firefox npx jest TC.test.js",
+    "test:e2e:chrome": "cross-env BROWSER=chrome npx jest TC.test.js"
   },
   "author": "Nikita Koni",
   "license": "ISC",
