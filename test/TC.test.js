@@ -1,7 +1,9 @@
 var webdriver = require('selenium-webdriver');
+var firefox = require('selenium-webdriver/firefox');
 var driver = webdriver.WebDriver;
 const{Builder, By, findElement} = require('selenium-webdriver');
 const assert = require('assert');
+let options = new firefox.Options();
 
 jest.setTimeout(10000);
 
@@ -24,10 +26,15 @@ beforeAll(async () => {
       capabilities = webdriver.Capabilities.safari();
       break;
     }
+    
     case "firefox": {
       require("geckodriver");
-      capabilities = webdriver.Capabilities.firefox();
+      options.addArguments('start-fullscreen');
+      options.addArguments('disable-inforbars');
+      options.addArguments('--headless'); 
+      capabilities = webdriver.Capabilities.firefox(options);
       break;
+      
     }
     case "chrome": {
       require("chromedriver");
@@ -44,8 +51,7 @@ beforeAll(async () => {
     }
   }
   driver = await new webdriver.Builder()
-    .withCapabilities(capabilities)
-    .build();
+    .withCapabilities(capabilities).build();
  
 });
 
