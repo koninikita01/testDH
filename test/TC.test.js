@@ -3,9 +3,9 @@ var  homepage = require('../pageobjects/homepage')
 var basepage = require('../pageobjects/basepage')
 const{Builder, By, FindElement, Key, until} = require('selenium-webdriver');
 const assert = require('assert');
-var driver ;
 const homePg = homepage;
 const basepg = basepage;
+let driver = webdriver.WebDriver;
 
 beforeAll(async () => {
   let capabilities= webdriver.Capabilities;
@@ -22,7 +22,7 @@ beforeAll(async () => {
       capabilities.set("ignoreZoomSetting", true);
       break;
     }
-    case "safari": {
+    case "safari": {  
       capabilities = webdriver.Capabilities.safari();
       break;
     }

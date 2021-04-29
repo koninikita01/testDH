@@ -1,7 +1,7 @@
 {
   "name": "selenium",
   "version": "1.0.0",
-  "description": "Selenium ",
+  "description": "Seleniumv webdriver",
   "main": "index.js",
   "directories": {
     "test": "test"
