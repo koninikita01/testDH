@@ -56,6 +56,7 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
+  (await driver).close();
   (await driver).quit();
 });
 
