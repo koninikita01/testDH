@@ -5,7 +5,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ koninikita01-patch-1 ]
+    branches: [ koninikita01-patch-1 , master]
   pull_request:
     branches: [ koninikita01-patch-1 ]
 
