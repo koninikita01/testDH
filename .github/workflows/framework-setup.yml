@@ -55,3 +55,8 @@ jobs:
        # run: npx selenium-standalone install && npx selenium-standalone start    
       - name: Test
         run: npx mocha --reporter mochawesome /__w/testDH/testDH/test/Test001.js
+      - name: Upload file
+        uses: actions/upload-artifact@v2
+        with:
+          name: report
+          path: /__w/testDH/testDH/mochawesome-report/mochawesome.html
