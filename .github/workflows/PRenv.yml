@@ -10,84 +10,14 @@ on:
     branches: [ koninikita01-patch-1 ]
 
 jobs:
-  build:
+  e2e-chrome:
     runs-on: ubuntu-latest
-    container:
-      image: node:14.4
-      options: --network-alias testHost
-    env:
-      NODE_ENV: test
-      SELENIUM_HUB_HOST: hub
-      TEST_HOST: testHost
-    services:
-      hub:
-        image: selenium/hub:3.141.59-gold
-      firefox:
-        image: selenium/node-firefox:3.141.59-gold
-      chrome:
-        image: selenium/node-chrome:4.0.0-beta-3-prerelease-20210422
-        env:
-          HUB_HOST: hub
-          HUB_PORT: 4444
     steps:
       - name: Checkout
         uses: actions/checkout@v1.2.0
-      - name: update apt
-        run: apt update
-      - name : install java 8
-        run : apt-get install openjdk-8-jre-headless -y
-      - name: check if java installed
-        run: java -version
-      - name: install unzip
-        run: apt-get install unzip
-      - name: download chromedriver
-        run: wget -N https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -P /github/home/Downloads
-      - name: unzip to Downloads folder
-        run: unzip /github/home/Downloads/chromedriver_linux64.zip -d /github/home/Downloads/chromeDriver/
-      - name : check unzip folder & list path
-        run: cd /github/home/Downloads/chromeDriver && ls -al && pwd
-      - name: export chromeDriver to $PATH
-        run: echo "/github/home/Downloads/chromeDriver" >> $GITHUB_PATH
-      - name: export runtime folder to $PATH
-        run: echo "/__w/testDH/testDH" >> $GITHUB_PATH
-#      - name: export resources folder to $PATH
-#        run: echo "/__w/testDH/testDH/resources" >> $GITHUB_PATH
-      - name: echo $path 
-        run: echo $PATH
-#      - name: add 755 permission for Downloads & list path
-#        run: chmod 755 /github/home/Downloads && ls -al /github/home/Downloads
-#       - name: install chromeDriver
-#         run: npm install --save-dev chromedriver
-#       - name: added 755 for all folders underneath
-#         run: chmod 755 /__w/testDH/testDH/
-      - name: add chmod 777 for test project
-        run: chmod 777 /__w/testDH/testDH/ && ls -al
-#      - name: executable
-#        run: mv -f /github/home/Downloads/chromeDriver /usr/local/bin/chromeDriver
-#      - name: sii
-#        run: chmod 755 /usr/local/share/chromedriver
-      - name: yarn install on project root dir
-        run: |
-          cd /__w/testDH/testDH && yarn install
-          pwd
-          ls -al && cat ./package.json
-#       - name : sel install && start
-#         run : npx selenium-standalone install --silent && npx selenium-standalone start --silent
-#         run : npx selenium-standalone install && npx selenium-standalone start
-#       - name : sel start
-#         run : npx selenium-standalone start
-#       - name : add selenium folder 
-#         run : mkdir selenium ~/selenium && cd ~/selenium
-#       - name: install sel
-#         run: wget https://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar
-#       - name: starting sel
-#         run: echo "\r\nStarting up Selenium server ...\r\n"
-#       - name : selenium server
-#         run: DISPLAY=:1 xvfb-run java -jar ~/selenium/selenium-server-standalone-3.4.0.jar
-#       - name : run start.sh
-#         run : npx pm2 start /__w/testDH/testDH/start.sh
-      - name : Run test
-        run : yarn test:e2e:chrome
-#       - name: Test
-#         run: npx mocha --reporter mochawesome /__w/testDH/testDH/test/Test001.js
-        #run: npx mocha --full-trace --reporter mochawesome test/*      
+        with:
+          node-version: 12
+      - run: yarn install
+      - run: yarn jest /__w/testDH/testDH/test/TC.test.js
+        env:
+          BROWSER: chrome     
