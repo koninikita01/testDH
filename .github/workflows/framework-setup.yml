@@ -2,10 +2,10 @@ name: framework-setup
 on: 
   push:
     branches:
-      - patch-2
+      - patch-1
   pull_request:
     branches:
-      - patch-2
+      - patch-1
 jobs:
   test_build:
     runs-on: ubuntu-latest
