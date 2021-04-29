@@ -18,6 +18,8 @@ jobs:
         with:
           node-version: 12
       - run: yarn install
+      - name : pwd
+        run: pwd
       - run: yarn jest /__w/testDH/testDH/test/TC.test.js
         env:
           BROWSER: chrome     
