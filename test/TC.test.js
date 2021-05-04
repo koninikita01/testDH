@@ -56,8 +56,8 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  (await driver).close();
-  (await driver).quit();
+//  await driver.close();
+  await driver.quit();
 });
 
 it("MVP", async () => {
