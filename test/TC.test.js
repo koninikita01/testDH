@@ -41,16 +41,10 @@ beforeAll(async () => {
 
     case "firefox": {
       require("geckodriver");
-      console.log('in firefox');
-      Firefox_options.addArguments('-headless');
+      Firefox_options.addArguments('--headless');
       Firefox_options.addArguments('--disable-gpu');
       Firefox_options.addArguments('--window-size=1980,1200')
       capabilities = webdriver.Capabilities.firefox();
-      capabilities.set("firefoxOptions", {
-        args: [
-          "--headless"
-        ]
-      });
       driver = await new webdriver.Builder().forBrowser ('firefox').setFirefoxOptions(Firefox_options)
       .withCapabilities(capabilities)
       .build();
