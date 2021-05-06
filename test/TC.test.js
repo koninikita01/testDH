@@ -81,7 +81,7 @@ afterAll(async () => {
 });
 
 
-it("launch DH and assert username text field", async () => {
+test("launch DH and assert username text field", async () => {
   await driver.get('https://dighybprstaging.z6.web.core.windows.net/');
   var username =  await driver.findElement(By.id('username'));
   await username.sendKeys('dh.1@client');
