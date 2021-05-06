@@ -3,7 +3,6 @@ var firefox = require('selenium-webdriver/firefox');
 let driver = webdriver;
 // require('ms-chromium-edge-driver');
 const{Builder, By, findElement} = require('selenium-webdriver');
-{describe, before, after, it}  require('selenium-webdriver/testing');
 const assert = require('assert');
 var Firefox_options = new firefox.Options();
 // const { installDriver } =require('ms-chromium-edge-driver');
