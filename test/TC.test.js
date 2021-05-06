@@ -11,7 +11,7 @@ var edge = require('selenium-webdriver/edge');
 // const ff_binary = new firefox.Binary();
 
 
-jest.setTimeout(10000);
+jest.setTimeout(6000);
 
 beforeAll(async () => {
   let capabilities= webdriver.Capabilities;
@@ -46,7 +46,7 @@ beforeAll(async () => {
       Firefox_options.addArguments('--disable-gpu');
       Firefox_options.addArguments('--window-size=1980,1200')
       capabilities = webdriver.Capabilities.firefox();
-      driver = await new webdriver.Builder().forBrowser ('firefox').setFirefoxOptions(Firefox_options)
+      driver = await new webdriver.Builder().forBrowser('firefox').setFirefoxOptions(Firefox_options)
       .withCapabilities(capabilities)
       .build();
       break;
@@ -89,4 +89,4 @@ test("launch DH and assert username text field", async () => {
 
 afterAll(async () => {
   await driver.quit();
-});
+},3000);
