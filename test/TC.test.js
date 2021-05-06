@@ -1,7 +1,7 @@
 var webdriver = require('selenium-webdriver');
 var firefox = require('selenium-webdriver/firefox');
 let driver = webdriver;
-// require('ms-chromium-edge-driver');
+require('jest');
 const{Builder, By, findElement} = require('selenium-webdriver');
 const assert = require('assert');
 var Firefox_options = new firefox.Options();
@@ -76,9 +76,6 @@ beforeAll(async () => {
   
  });
 
-afterAll(async () => {
-  await driver.quit();
-});
 
 
 test("launch DH and assert username text field", async () => {
@@ -90,3 +87,6 @@ test("launch DH and assert username text field", async () => {
   assert.strictEqual(val, 'dh.1@client');
 });
 
+afterAll(async () => {
+  await driver.quit();
+});
