@@ -3,6 +3,7 @@ var firefox = require('selenium-webdriver/firefox');
 let driver = webdriver;
 // require('ms-chromium-edge-driver');
 const{Builder, By, findElement} = require('selenium-webdriver');
+{describe, before, after, it}  require('selenium-webdriver/testing');
 const assert = require('assert');
 var Firefox_options = new firefox.Options();
 // const { installDriver } =require('ms-chromium-edge-driver');
@@ -93,15 +94,3 @@ it("launch DH and assert username text field", async () => {
   assert.strictEqual(val, 'dh.1@client');
 });
 
-function handleFailure(err, driver) {
-  console.error('Something went wrong!\n', err.stack, '\n');
-  driver.quit();
-}
-
-
-//reporters: [
-  //     "default",
-  //     ["./node_modules/jest-html-reporter", {
-  //         pageTitle: "Test Report"
-  //     }]
-  // ]
