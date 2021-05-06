@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         include:
-         - browser: "chrome"
+#          - browser: "chrome"
          - browser: "firefox"
 
     steps:
