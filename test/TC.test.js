@@ -9,7 +9,7 @@ jest.setTimeout(10000);
 
 beforeAll(async () => {
   let capabilities= webdriver.Capabilities;
-  switch (process.env.BROWSER || "chrome") {
+  switch (process.env.BROWSER) {
     case "ie": {
       // HACK: include IEDriver path by nuget
       const driverPath = path.join(
