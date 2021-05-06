@@ -7,13 +7,17 @@
     "test": "test"
   },
   "scripts": {
-    "test:e2e:firefox": "cross-env BROWSER=firefox npx jest TC.test.js",
-    "test:e2e:chrome": "cross-env BROWSER=chrome npx jest TC.test.js"
+    "test:e2e:coverage": "cross-env BROWSER=chrome npx jest --coverage --detectOpenHandles TC.test.js",
+    "test:e2e:firefox": "cross-env BROWSER=firefox npx jest --detectOpenHandles TC.test.js",
+    "test:e2e:chrome": "cross-env BROWSER=chrome npx jest TC.test.js",
+    "test:e2e:edge": "cross-env BROWSER=edge npx jest TC.test.js"
   },
   "author": "Nikita Koni",
   "license": "ISC",
   "dependencies": {
+    "@microsoft/edge-selenium-tools": "^3.6.1",
     "chromedriver": "^90.0.0",
+    "ms-chromium-edge-driver": "^0.4.2",
     "selenium-standalone": "^6.23.0"
   },
   "devDependencies": {
@@ -22,8 +26,7 @@
     "cross-env": "^7.0.3",
     "geckodriver": "^1.22.3",
     "jest": "^26.6.3",
-    "mocha": "^8.3.2",
-    "mochawesome": "^6.2.2",
+    "jest-html-reporter": "^3.3.0",
     "pm2": "^4.5.6",
     "selenium-webdriver": "3.6.0",
     "webdriver-manager": "^12.1.8"
