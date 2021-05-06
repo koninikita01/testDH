@@ -41,6 +41,7 @@ beforeAll(async () => {
 
     case "firefox": {
       require("geckodriver");
+      console.log('firefox');
       Firefox_options.addArguments('--headless');
       Firefox_options.addArguments('--disable-gpu');
       Firefox_options.addArguments('--window-size=1980,1200')
@@ -54,6 +55,7 @@ beforeAll(async () => {
     }
     case "chrome": {
       require("chromedriver");
+      console.log('chrome');
       capabilities = webdriver.Capabilities.chrome();
       capabilities.set("chromeOptions", {
         args: [
