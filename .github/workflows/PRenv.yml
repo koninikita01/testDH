@@ -22,7 +22,8 @@ jobs:
 #       - name : run start.sh
 #         run : npx pm2 start /home/runner/work/testDH/testDH/start.sh
 #       - run : yarn webdriver-manager start
-      - run:  yarn jest /test/TC01.test.js
+#       - run:  yarn jest /test/TC01.test.js
+      - run : yarn test:e2e:chrome
 #         env:
 #           BROWSER: chrome  
 #       - run: yarn jest /test/*
