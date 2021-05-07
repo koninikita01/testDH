@@ -13,7 +13,7 @@ var edge = require('selenium-webdriver/edge');
 
 jest.setTimeout(6000);
 
-beforeAll(async () => {
+beforeEach(async () => {
   let capabilities= webdriver.Capabilities;
   switch (process.env.BROWSER) {
    
@@ -40,6 +40,7 @@ beforeAll(async () => {
     }
 
     case "firefox": {
+      console.log(process.env.BROWSER);
       require("geckodriver");
       console.log('firefox');
       Firefox_options.addArguments('--headless');
@@ -87,6 +88,7 @@ test("launch DH and assert username text field", async () => {
   assert.strictEqual(val, 'dh.1@client');
 });
 
-afterAll(async () => {
+afterEach(async () => {
+  console.log('after each');
   await driver.quit();
 },3000);
