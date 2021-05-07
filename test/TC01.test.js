@@ -16,7 +16,7 @@ test("launch DH and assert username text field", async () => {
     Firefox_options.addArguments('--disable-gpu');
     Firefox_options.addArguments('--window-size=1980,1200')
     capabilities = webdriver.Capabilities.firefox();
-    driver = await new webdriver.Builder().forBrowser('firefox').setFirefoxOptions(Firefox_options).usingServer('http://localhost:4444/wd/hub')
+    driver = await new webdriver.Builder().forBrowser('firefox').setFirefoxOptions(Firefox_options)//usingServer('http://localhost:4444/wd/hub')
     .withCapabilities(capabilities)
     .build();
 
