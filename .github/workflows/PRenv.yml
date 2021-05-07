@@ -16,8 +16,8 @@ jobs:
         with:
           node-version: 14.x
       - run: yarn install
-      - run : webdriver-manager update
-      - run : webdriver-manager start
+      - run : yarn webdriver-manager update
+      - run : yarn webdriver-manager start
       - run: yarn jest /test/*
         env:
           BROWSER: firefox  
