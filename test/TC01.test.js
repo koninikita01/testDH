@@ -1,13 +1,11 @@
 var webdriver = require('selenium-webdriver');
 let firefox = require('selenium-webdriver/firefox');
 let driver = webdriver;
-require('jest');
+require('jest'); // new
 const{Builder, By, findElement} = require('selenium-webdriver');
 const assert = require('assert');
 
 var edge = require('selenium-webdriver/edge');
-
-
 
 jest.setTimeout(30000);
 
