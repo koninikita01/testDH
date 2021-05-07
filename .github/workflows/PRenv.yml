@@ -24,7 +24,7 @@ jobs:
 #       - run : yarn webdriver-manager start
       - run: yarn jest /home/runner/work/testDH/testDH/test/*
         env:
-          BROWSER: firefox  
+          BROWSER: chrome  
 #       - run: yarn jest /test/*
 #         env:
 #           BROWSER: chrome  
