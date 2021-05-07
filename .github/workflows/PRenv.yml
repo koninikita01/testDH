@@ -1,3 +1,4 @@
+
 name: Node.js CI
 
 on:
@@ -9,12 +10,6 @@ on:
 jobs:
   e2e-chrome:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-#          - browser: "chrome"
-         - browser: "firefox"
-
     steps:
       - name: Checkout
         uses: actions/checkout@v1.2.0
@@ -23,8 +18,7 @@ jobs:
       - run: yarn install
       - run: yarn jest /test/*
         env:
-         BROWSER: ${{matrix.browser}}  
-   
-     
-          
-
+          BROWSER: firefox  
+      - run: yarn jest /test/*
+        env:
+          BROWSER: chrome  
