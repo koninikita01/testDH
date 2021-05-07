@@ -16,15 +16,11 @@ jobs:
         with:
           node-version: 14.x
       - run: yarn install
-      - name : install java 8
-        run : apt-get install openjdk-8-jre-headless -y
-      - name : sel install && start
-        run : npx selenium-standalone install --silent
-      - name : sel start
-        run : npx selenium-standalone start
+      - run : webdriver-manager update
+      - run : webdriver-manager start
       - run: yarn jest /test/*
         env:
           BROWSER: firefox  
-      - run: yarn jest /test/*
-        env:
-          BROWSER: chrome  
+#       - run: yarn jest /test/*
+#         env:
+#           BROWSER: chrome  
