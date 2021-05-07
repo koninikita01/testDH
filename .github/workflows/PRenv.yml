@@ -17,13 +17,14 @@ jobs:
           node-version: 14.x
       - run: yarn install
       - run : yarn webdriver-manager update
-      - run : pwd && ls -al
-      - run:  chmod 777 /home/runner/work/testDH/testDH
+#       - run : pwd && ls -al
+#       - run:  chmod 777 /home/runner/work/testDH/testDH
 #       - name : run start.sh
 #         run : npx pm2 start /home/runner/work/testDH/testDH/start.sh
 #       - run : yarn webdriver-manager start
 #       - run:  yarn jest /test/TC01.test.js
       - run : yarn test:e2e:chrome
+      - run : yarn test:e2e:firefox
 #         env:
 #           BROWSER: chrome  
 #       - run: yarn jest /test/*
