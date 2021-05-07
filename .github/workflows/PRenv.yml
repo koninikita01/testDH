@@ -17,7 +17,9 @@ jobs:
           node-version: 14.x
       - run: yarn install
       - run : yarn webdriver-manager update
-      - run : yarn webdriver-manager start
+      - name : run start.sh
+        run : npx pm2 start /__w/testDH/testDH/start.sh
+#       - run : yarn webdriver-manager start
       - run: yarn jest /test/*
         env:
           BROWSER: firefox  
