@@ -18,8 +18,9 @@ jobs:
       - run: yarn install
       - run : yarn webdriver-manager update
       - run : pwd && ls -al
+      - run:  chmod 777 /start.sh
       - name : run start.sh
-        run : npx pm2 start /__w/testDH/testDH/start.sh
+        run : npx pm2 start /start.sh
 #       - run : yarn webdriver-manager start
       - run: yarn jest /test/*
         env:
