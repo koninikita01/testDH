@@ -18,11 +18,11 @@ jobs:
       - run: yarn install
       - run : yarn webdriver-manager update
       - run : pwd && ls -al
-      - run:  chmod 777 /start.sh
+      - run:  chmod 777 /home/runner/work/testDH/testDH
       - name : run start.sh
-        run : npx pm2 start /start.sh
+        run : npx pm2 start /home/runner/work/testDH/testDH/start.sh
 #       - run : yarn webdriver-manager start
-      - run: yarn jest /test/*
+      - run: yarn jest /home/runner/work/testDH/testDH/test/*
         env:
           BROWSER: firefox  
 #       - run: yarn jest /test/*
