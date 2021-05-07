@@ -11,9 +11,10 @@ var edge = require('selenium-webdriver/edge');
 // const ff_binary = new firefox.Binary();
 
 
-jest.setTimeout(6000);
+jest.setTimeout(10000);
 
 beforeEach(async () => {
+  console.log('inside before each');
   let capabilities= webdriver.Capabilities;
   switch (process.env.BROWSER) {
    
@@ -56,6 +57,7 @@ beforeEach(async () => {
     }
     case "chrome": {
       require("chromedriver");
+      console.log(process.env.BROWSER);
       console.log('chrome');
       capabilities = webdriver.Capabilities.chrome();
       capabilities.set("chromeOptions", {
@@ -66,12 +68,14 @@ beforeEach(async () => {
           "--window-size=1980,1200"
         ]
       });
+      console.log('defining chrome driver');
       driver = await new webdriver.Builder().forBrowser ('chrome')
       .withCapabilities(capabilities)
       .build();
       break;
     }
 
+      
   }
 
   
