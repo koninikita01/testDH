@@ -1,10 +1,10 @@
 var webdriver = require('selenium-webdriver');
-var firefox = require('selenium-webdriver/firefox');
+let firefox = require('selenium-webdriver/firefox');
 let driver = webdriver;
 require('jest');
 const{Builder, By, findElement} = require('selenium-webdriver');
 const assert = require('assert');
-var Firefox_options = new firefox.Options();
+let Firefox_options = new firefox.Options();
 // const { installDriver } =require('ms-chromium-edge-driver');
 var edge = require('selenium-webdriver/edge');
 
@@ -43,7 +43,7 @@ beforeEach(async () => {
     case "firefox": {
       console.log(process.env.BROWSER);
       require("geckodriver");
-      console.log('firefox');
+      console.log('inside firefox block');
       Firefox_options.addArguments('--headless');
       Firefox_options.addArguments('--disable-gpu');
       Firefox_options.addArguments('--window-size=1980,1200')
