@@ -3,9 +3,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ koninikita01-patch-1 , master]
+    branches: [ test_nk , master]
   pull_request:
-    branches: [ koninikita01-patch-1 ]
+    branches: [ test_nk ]
 
 jobs:
   e2e-chrome:
