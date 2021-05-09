@@ -12,7 +12,7 @@ var edge = require('selenium-webdriver/edge');
 // const ff_binary = new firefox.Binary();
 
 
-jest.setTimeout(10000);
+jest.setTimeout(30000);
 
 beforeEach(async () => {
   console.log('inside before each');
