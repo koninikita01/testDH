@@ -1,11 +1,7 @@
 
 name: Node.js CI
 
-on:
-  push:
-    branches: [ test_nk , master]
-  pull_request:
-    branches: [ test_nk ]
+on: [push, pull_request]
 
 jobs:
   e2e-chrome:
