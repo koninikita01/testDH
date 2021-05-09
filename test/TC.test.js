@@ -15,8 +15,7 @@ var edge = require('selenium-webdriver/edge');
 jest.setTimeout(30000);
 
 beforeEach(async () => {
-  console.log('inside before each');
-  let capabilities= webdriver.Capabilities;
+    let capabilities= webdriver.Capabilities;
   switch (process.env.BROWSER) {
    
     case "edge": {
@@ -42,8 +41,6 @@ beforeEach(async () => {
     }
 
     case "firefox": {
-      console.log(process.env.BROWSER);
-      console.log('inside firefox block');
       Firefox_options.addArguments('--headless');
       Firefox_options.addArguments('--disable-gpu');
       Firefox_options.addArguments('--window-size=1980,1200')
@@ -57,8 +54,6 @@ beforeEach(async () => {
     }
     case "chrome": {
       require("chromedriver");
-      console.log(process.env.BROWSER);
-      console.log('chrome');
       capabilities = webdriver.Capabilities.chrome();
       capabilities.set("chromeOptions", {
         args: [
