@@ -1,4 +1,5 @@
 var webdriver = require('selenium-webdriver');
+require('geckodriver');
 let firefox = require('selenium-webdriver/firefox');
 let driver = webdriver;
 require('jest');
@@ -42,7 +43,6 @@ beforeEach(async () => {
 
     case "firefox": {
       console.log(process.env.BROWSER);
-      require("geckodriver");
       console.log('inside firefox block');
       Firefox_options.addArguments('--headless');
       Firefox_options.addArguments('--disable-gpu');
