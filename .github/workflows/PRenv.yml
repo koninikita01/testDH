@@ -30,7 +30,8 @@ jobs:
 #       - run:  yarn jest /test/TC01.test.js
       - run : yarn jest /test/TC01.test.js
         env :
-             BROWSER: ${{matrix.browser}}     
+             BROWSER: ${{matrix.browser}} 
+             URL: "https://dighybprstaging.z6.web.core.windows.net/"
 #       - run: yarn jest /test/*
 #         env:
 #           BROWSER: ${{matrix.browser}}  
