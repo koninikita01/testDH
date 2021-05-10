@@ -24,8 +24,10 @@ jobs:
         uses: actions/checkout@v2
       
       - name: 'Running test on BrowserStack'  # Invokes the actual test script that would run on BrowserStack browsers
-        run: yarn install && yarn test:e2e:chrome  # See sample test script above
-
+        run: |
+         yarn install
+         yarn test:e2e:chrome  
+        
       - name: 'BrowserStackLocal Stop'  # Terminating the BrowserStackLocal tunnel connection
         uses: browserstack/github-actions/setup-local@master
         with:
@@ -54,7 +56,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: 'Running test on BrowserStack'  # Invokes the actual test script that would run on BrowserStack browsers
-        run: yarn install && yarn test:e2e:chrome  # See sample test script above
+        run:  |
+         yarn install 
+         yarn test:e2e:chrome
 
       - name: 'BrowserStackLocal Stop'  # Terminating the BrowserStackLocal tunnel connection
         uses: browserstack/github-actions/setup-local@master
