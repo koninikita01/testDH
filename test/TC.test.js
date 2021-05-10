@@ -1,41 +1,50 @@
 var webdriver = require('selenium-webdriver');
+var edge = require('selenium-webdriver/edge');
 require('geckodriver');
+require('path');
 let firefox = require('selenium-webdriver/firefox');
 let driver = webdriver;
 require('jest');
 const{Builder, By, findElement} = require('selenium-webdriver');
 const assert = require('assert');
 let Firefox_options = new firefox.Options();
-// const { installDriver } =require('ms-chromium-edge-driver');
-var edge = require('selenium-webdriver/edge');
+let edgeOptions = new edge.Options();
+const { installDriver } =require('ms-chromium-edge-driver');
+// const edge = require("@microsoft/edge-selenium-tools")
 
 // const ff_binary = new firefox.Binary();
 
+jest.setTimeout(12000);
 
-jest.setTimeout(30000);
-
-beforeEach(async () => {
-    let capabilities= webdriver.Capabilities;
+beforeAll(async () => {
+  let capabilities= webdriver.Capabilities;
   switch (process.env.BROWSER) {
    
     case "edge": {
-
-      const driverPath = path.join(
-        __dirname,
-        "../Selenium.WebDriver.IEDriver.3.150.0/driver/"
-      );
-      process.env.PATH = `${process.env.PATH};${driverPath};`;
-      capabilities = webdriver.Capabilities.ie();
-      capabilities.set("ignoreProtectedModeSettings", true);
-      capabilities.set("ignoreZoomSetting", true);
-      driver = await new webdriver.Builder()
-      .withCapabilities(capabilities)
-      .build();
-      break;
-
- 
+        // require('selenium-webdriver/edge');
+        const edgePaths = await installDriver();
+        //  console.log(edgeOptions);
+        edgeOptions.setEdgeChromium();
+        edgeOptions.setBinaryPath(edgePaths.browserPath);
+        edgeOptions.addArguments("headless"); 
+  
+    capabilities = webdriver.Capabilities.edge();
+    capabilities.set("ignoreProtectedModeSettings", true);
+    capabilities.set("ignoreZoomSetting", true);
+    driver = await new webdriver.Builder()
+    .forBrowser('MicrosoftEdge')
+    // .withCapabilities(capabilities)
+    .setEdgeOptions(edgeOptions)
+    .setEdgeService(new edge.ServiceBuilder(edgePaths.driverPath))
+    .build();
+     break;
+     //chromium
+      // let options = new edge.Options().setEdgeChromium(true);
+      // driver = edge.Driver.createSession(options);
+      // break;
     }
-    case "safari": {  
+
+     case "safari": {  
       capabilities = webdriver.Capabilities.safari();
       break;
     }
@@ -57,7 +66,7 @@ beforeEach(async () => {
       capabilities = webdriver.Capabilities.chrome();
       capabilities.set("chromeOptions", {
         args: [
-          "--headless",
+          // "--headless",
           "--no-sandbox",
           "--disable-gpu",
           "--window-size=1980,1200"
@@ -68,27 +77,41 @@ beforeEach(async () => {
       .withCapabilities(capabilities)
       .build();
       break;
-    }
-
-      
+    }    
   }
 
-  
- });
+  const env_url = process.env.URL;
+  console.log(env_url);
+  // url =enviorment.env_url;
+  // console.log(url);
 
-
+  // const fs = require('fs');
+  // const jsonString = fs.readFileSync('./env.json');
+  // const env_details = JSON.parse(jsonString);
+  // console.log(env_details.env_url);
+ 
+  });
 
 test("launch DH and assert username text field", async () => {
-  await driver.get('https://dighybprstaging.z6.web.core.windows.net/');
+  await driver.get(process.env.URL);
   var username =  await driver.findElement(By.id('username'));
   await username.sendKeys('dh.1@client');
-  console.log('found username');
   var val =  await driver.findElement(By.id('username')).getAttribute("value");
   assert.strictEqual(val, 'dh.1@client');
 });
 
-afterEach(async () => {
-  console.log('after each');
-  await driver.quit();
-},3000);
 
+test("launch DH and assert username text field", async () => {
+  await driver.get(process.env.URL);
+  var username =  await driver.findElement(By.id('username'));
+  await username.sendKeys('dh.1@client');
+  var val =  await driver.findElement(By.id('username')).getAttribute("value");
+  assert.strictEqual(val, 'dh.1@client');
+});
+
+afterAll(async () => {
+  await driver.quit();
+});
+
+
+module.exports ={ driver}
