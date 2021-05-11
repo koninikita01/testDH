@@ -1,5 +1,5 @@
 {
-  "type":"module",
+  "type": "module",
   "name": "selenium",
   "version": "1.0.0",
   "description": "Seleniumv webdriver",
@@ -12,13 +12,14 @@
     "test:e2e:firefox": "cross-env BROWSER=firefox npx jest --reporters jest-html-reporters --detectOpenHandles TC.test.js",
     "test:e2e:chrome": "cross-env BROWSER=chrome npx jest /test/TC.test.js ",
     "test:e2e:edge": "cross-env BROWSER=edge npx jest TC.test.js",
-    "test:e2e:env": "cross-env BROWSER=chrome cross-env URL=staging_env npx jest  /test/TC.test.js"
+    "test:e2e:env": "cross-env BROWSER=chrome  URL='https://dighybprstaging.z6.web.core.windows.net/' npx jest  /test/TC.test.js"
   },
   "author": "Nikita Koni",
   "license": "ISC",
   "dependencies": {
     "@microsoft/edge-selenium-tools": "^3.6.1",
     "chromedriver": "^90.0.0",
+    "jest": "^26.6.3",
     "jest-html-reporters": "^2.1.6",
     "ms-chromium-edge-driver": "^0.4.2",
     "selenium-standalone": "^6.23.0"
@@ -28,11 +29,9 @@
     "chai": "^4.3.4",
     "cross-env": "^7.0.3",
     "geckodriver": "^1.22.3",
-    "jest": "^26.6.3",
     "jest-html-reporter": "^3.3.0",
     "pm2": "^4.5.6",
     "selenium-webdriver": "3.6.0",
     "webdriver-manager": "^12.1.8"
   }
 }
-
