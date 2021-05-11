@@ -1,18 +1,17 @@
-var webdriver = require('selenium-webdriver');
-var edge = require('selenium-webdriver/edge');
+let webdriver = require('selenium-webdriver');
+let edge = require('selenium-webdriver/edge');
 require('geckodriver');
 require('path');
+require('jest');
 let firefox = require('selenium-webdriver/firefox');
 let driver = webdriver;
-require('jest');
 const{Builder, By, findElement} = require('selenium-webdriver');
 const assert = require('assert');
 let Firefox_options = new firefox.Options();
 let edgeOptions = new edge.Options();
 const { installDriver } =require('ms-chromium-edge-driver');
-// const edge = require("@microsoft/edge-selenium-tools")
+let fs = require('fs');
 
-// const ff_binary = new firefox.Binary();
 
 jest.setTimeout(12000);
 
@@ -54,7 +53,7 @@ beforeAll(async () => {
       Firefox_options.addArguments('--disable-gpu');
       Firefox_options.addArguments('--window-size=1980,1200')
       capabilities = webdriver.Capabilities.firefox();
-      driver = await new webdriver.Builder().forBrowser('firefox').setFirefoxOptions(Firefox_options)//.usingServer('http://localhost:4444/wd/hub')
+      driver = await new webdriver.Builder().forBrowser('firefox').setFirefoxOptions(Firefox_options)
       .withCapabilities(capabilities)
       .build();
       break;
@@ -79,16 +78,6 @@ beforeAll(async () => {
       break;
     }    
   }
-
-  const env_url = process.env.URL;
-  console.log(env_url);
-  // url =enviorment.env_url;
-  // console.log(url);
-
-  // const fs = require('fs');
-  // const jsonString = fs.readFileSync('./env.json');
-  // const env_details = JSON.parse(jsonString);
-  // console.log(env_details.env_url);
  
   });
 
@@ -98,16 +87,16 @@ test("launch DH and assert username text field", async () => {
   await username.sendKeys('dh.1@client');
   var val =  await driver.findElement(By.id('username')).getAttribute("value");
   assert.strictEqual(val, 'dh.1@client');
+
 });
 
 
-test("launch DH and assert username text field", async () => {
-  //new 
+test("Assert password text field", async () => {
   await driver.get(process.env.URL);
-  var username =  await driver.findElement(By.id('username'));
-  await username.sendKeys('dh.1@client');
-  var val =  await driver.findElement(By.id('username')).getAttribute("value");
-  assert.strictEqual(val, 'dh.1@client');
+   var username =  await driver.findElement(By.id('password'));
+  await username.sendKeys('passsword');
+  var val =  await driver.findElement(By.id('password')).getAttribute("value");
+  assert.strictEqual(val, 'passsword');
 });
 
 afterAll(async () => {
