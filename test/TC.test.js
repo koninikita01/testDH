@@ -1,8 +1,8 @@
 let webdriver = require('selenium-webdriver');
 let edge = require('selenium-webdriver/edge');
-require('geckodriver');
-require('path');
 require('jest');
+require('geckodriver');
+const {beforeAll, afterAll,setTimeout, test} = require('@jest/globals');
 let firefox = require('selenium-webdriver/firefox');
 let driver = webdriver;
 const{Builder, By, findElement} = require('selenium-webdriver');
@@ -65,7 +65,7 @@ beforeAll(async () => {
       capabilities = webdriver.Capabilities.chrome();
       capabilities.set("chromeOptions", {
         args: [
-          // "--headless",
+          "--headless",
           "--no-sandbox",
           "--disable-gpu",
           "--window-size=1980,1200"
@@ -82,6 +82,7 @@ beforeAll(async () => {
   });
 
 test("launch DH and assert username text field", async () => {
+  console.log(process.env.URL);
   await driver.get(process.env.URL);
   var username =  await driver.findElement(By.id('username'));
   await username.sendKeys('dh.1@client');
@@ -104,4 +105,4 @@ afterAll(async () => {
 });
 
 
-module.exports ={ driver}
+module.exports ={ driver};
