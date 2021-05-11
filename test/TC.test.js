@@ -11,7 +11,7 @@ let Firefox_options = new firefox.Options();
 let edgeOptions = new edge.Options();
 const { installDriver } =require('ms-chromium-edge-driver');
 let fs = require('fs');
-
+let url;
 
 jest.setTimeout(12000);
 
@@ -78,12 +78,13 @@ beforeAll(async () => {
       break;
     }    
   }
- 
+  console.log(process.env.URL);
+  url = process.env.URL;
+  console.log(url);
   });
 
 test("launch DH and assert username text field", async () => {
-  console.log(process.env.URL);
-  await driver.get(process.env.URL);
+  await driver.get(url);
   var username =  await driver.findElement(By.id('username'));
   await username.sendKeys('dh.1@client');
   var val =  await driver.findElement(By.id('username')).getAttribute("value");
@@ -93,7 +94,7 @@ test("launch DH and assert username text field", async () => {
 
 
 test("Assert password text field", async () => {
-  await driver.get(process.env.URL);
+  await driver.get("https://dighybprstaging.z6.web.core.windows.net/");
    var username =  await driver.findElement(By.id('password'));
   await username.sendKeys('passsword');
   var val =  await driver.findElement(By.id('password')).getAttribute("value");
