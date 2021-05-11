@@ -82,6 +82,7 @@ beforeAll(async () => {
   });
 
 test("launch DH and assert username text field", async () => {
+  console.log(process.env.URL);
   await driver.get(process.env.URL);
   var username =  await driver.findElement(By.id('username'));
   await username.sendKeys('dh.1@client');

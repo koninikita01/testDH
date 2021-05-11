@@ -10,7 +10,7 @@
   "scripts": {
     "test:e2e:coverage": "cross-env BROWSER=chrome npx jest --coverage --detectOpenHandles TC.test.js",
     "test:e2e:firefox": "cross-env BROWSER=firefox npx jest --reporters jest-html-reporters --detectOpenHandles TC.test.js",
-    "test:e2e:chrome": "cross-env BROWSER=chrome npx jest /test/TC.test.js --reporters jest-html-reporters ",
+    "test:e2e:chrome": "cross-env BROWSER=chrome npx jest /test/TC.test.js ",
     "test:e2e:edge": "cross-env BROWSER=edge npx jest TC.test.js",
     "test:e2e:env": "cross-env BROWSER=chrome cross-env URL=staging_env npx jest  /test/TC.test.js"
   },
@@ -35,3 +35,4 @@
     "webdriver-manager": "^12.1.8"
   }
 }
+
