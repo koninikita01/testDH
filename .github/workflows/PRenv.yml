@@ -38,8 +38,8 @@ jobs:
       # - run : yarn test:e2e:chrome
       - run : yarn jest /test/TC.test.js
         env:
-          BROWSER: chrome  
-          URL: https://dighybprstaging.z6.web.core.windows.net/
+          BROWSER: chrome
+          # URL: https://dighybprstaging.z6.web.core.windows.net/
 #       - run: yarn jest /test/*
 #         env:
 #           BROWSER: chrome  

@@ -82,7 +82,7 @@ beforeAll(async () => {
   });
 
 test("launch DH and assert username text field", async () => {
-  console.log(process.env.URL);
+  console.log("https://dighybprstaging.z6.web.core.windows.net/");
   await driver.get(process.env.URL);
   var username =  await driver.findElement(By.id('username'));
   await username.sendKeys('dh.1@client');
@@ -93,7 +93,7 @@ test("launch DH and assert username text field", async () => {
 
 
 test("Assert password text field", async () => {
-  await driver.get(process.env.URL);
+  await driver.get("https://dighybprstaging.z6.web.core.windows.net/");
    var username =  await driver.findElement(By.id('password'));
   await username.sendKeys('passsword');
   var val =  await driver.findElement(By.id('password')).getAttribute("value");
