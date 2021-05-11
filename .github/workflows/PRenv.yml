@@ -10,11 +10,11 @@ on:
 jobs:
   e2e-chrome:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-         - browser: "chrome"
-         - browser: "firefox"
+    # strategy:
+    #   matrix:
+    #     include:
+    #      - browser: "chrome"
+    #      - browser: "firefox"
     steps:
       - name: Checkout
         uses: actions/checkout@v1.2.0
@@ -39,7 +39,7 @@ jobs:
       - run : yarn test:e2e:chrome
         env:
           BROWSER: chrome  
-          URL: "https://dighybprstaging.z6.web.core.windows.net/"
+          URL: https://dighybprstaging.z6.web.core.windows.net/
 #       - run: yarn jest /test/*
 #         env:
 #           BROWSER: chrome  
