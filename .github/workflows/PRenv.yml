@@ -36,7 +36,7 @@ jobs:
 #         env:
 #           BROWSER: ${{matrix.browser}}  
       # - run : yarn test:e2e:chrome --reporters jest-html-reporters
-      - run : yarn jest /test/TC.test.js 
+      - run : yarn jest /test/TC.test.js --reporters jest-html-reporters
         env:
           BROWSER: ${{matrix.browser}} 
           URL: https://dighybprstaging.z6.web.core.windows.net/
