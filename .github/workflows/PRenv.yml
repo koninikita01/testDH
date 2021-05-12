@@ -22,25 +22,10 @@ jobs:
           node-version: 14.x
       - run: yarn install
       - run : yarn webdriver-manager update
-#       - run : pwd && ls -al
-#       - run:  chmod 777 /home/runner/work/testDH/testDH
-#       - name : run start.sh
-#         run : npx pm2 start /home/runner/work/testDH/testDH/start.sh
-#       - run : yarn webdriver-manager start
-#       - run:  yarn jest /test/TC01.test.js
-      # - run : yarn jest /test/TC01.test.js
-      #   env :
-      #        BROWSER: ${{matrix.browser}} 
-      #        URL: "https://dighybprstaging.z6.web.core.windows.net/"
-#       - run: yarn jest /test/*
-#         env:
-#           BROWSER: ${{matrix.browser}}  
-      # - run : yarn test:e2e:chrome --reporters jest-html-reporters --reporters jest-html-reporters     JEST_HTML_REPORTERS_FILE_NAME: TestReport.html
-      - run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - run : yarn jest /test/TC.test.js --detectOpenHandles --reporters jest-html-reporters  
         env:
           BROWSER: ${{matrix.browser}} 
           URL: https://stukstswstagingdh.z33.web.core.windows.net/
-          JEST_HTML_REPORTERS_FILE_NAME: TestReport_${{matrix.browser}}_${{ steps.date.outputs.date }}.html
+          JEST_HTML_REPORTERS_FILE_NAME: TestReport_${{matrix.browser}}.html
       
 
