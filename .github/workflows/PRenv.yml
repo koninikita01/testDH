@@ -40,4 +40,5 @@ jobs:
         env:
           BROWSER: ${{matrix.browser}} 
           URL: https://dighybprstaging.z6.web.core.windows.net/
+          JEST_HTML_REPORTERS_FILE_NAME: TestReport.html
 
