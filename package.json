@@ -10,9 +10,9 @@
   "scripts": {
     "test:e2e:coverage": "cross-env BROWSER=chrome npx jest --coverage --detectOpenHandles TC.test.js",
     "test:e2e:firefox": "cross-env BROWSER=firefox npx jest --reporters jest-html-reporters --detectOpenHandles TC.test.js",
-    "test:e2e:chrome": "cross-env BROWSER=chrome npx jest /test/TC.test.js ",
+    "test:e2e:chrome": "cross-env BROWSER=chrome npx jest /test/TC.test.js  --reporters jest-html-reporters JEST_HTML_REPORTERS_FILE_NAME=chrome.html",
     "test:e2e:edge": "cross-env BROWSER=edge npx jest TC.test.js",
-    "test:e2e:env": "cross-env BROWSER=chrome  URL='https://dighybprstaging.z6.web.core.windows.net/' npx jest  /test/TC.test.js"
+    "test:e2e:env": "cross-env BROWSER=chrome  URL='https://stukstswstagingdh.z33.web.core.windows.net/' npx jest /test/TC.test.js --reporters jest-html-reporters"
   },
   "author": "Nikita Koni",
   "license": "ISC",

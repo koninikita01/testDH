@@ -1,8 +1,7 @@
 let webdriver = require('selenium-webdriver');
 let edge = require('selenium-webdriver/edge');
-require('jest');
 require('geckodriver');
-const {beforeAll, afterAll,setTimeout, test} = require('@jest/globals');
+require('jest');
 let firefox = require('selenium-webdriver/firefox');
 let driver = webdriver;
 const{Builder, By, findElement} = require('selenium-webdriver');
@@ -20,10 +19,8 @@ beforeAll(async () => {
   switch (process.env.BROWSER) {
    
     case "edge": {
-        // require('selenium-webdriver/edge');
-        const edgePaths = await installDriver();
-        //  console.log(edgeOptions);
-        edgeOptions.setEdgeChromium();
+         const edgePaths = await installDriver();
+         edgeOptions.setEdgeChromium();
         edgeOptions.setBinaryPath(edgePaths.browserPath);
         edgeOptions.addArguments("headless"); 
   
