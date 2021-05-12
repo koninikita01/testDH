@@ -39,6 +39,6 @@ jobs:
       - run : yarn jest /test/TC.test.js 
         env:
           BROWSER: ${{matrix.browser}} 
-          URL: https://dighybprstaging.z6.web.core.windows.net/
+          URL: https://stukstswstagingdh.z33.web.core.windows.net/
       
 
