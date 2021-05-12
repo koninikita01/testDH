@@ -36,9 +36,10 @@ jobs:
 #         env:
 #           BROWSER: ${{matrix.browser}}  
       # - run : yarn test:e2e:chrome --reporters jest-html-reporters --reporters jest-html-reporters     JEST_HTML_REPORTERS_FILE_NAME: TestReport.html
-      - run : yarn jest /test/TC.test.js 
+      - run : yarn jest /test/TC.test.js --reporters jest-html-reporters  
         env:
           BROWSER: ${{matrix.browser}} 
           URL: https://stukstswstagingdh.z33.web.core.windows.net/
+          JEST_HTML_REPORTERS_FILE_NAME: TestReport+${{matrix.browser}}+.html
       
 
