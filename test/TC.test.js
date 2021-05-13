@@ -90,7 +90,7 @@ test("launch DH and assert username text field", async () => {
 
 test("Assert password text field", async () => {
   await driver.get(url);
-   var username =  await driver.findElement(By.id('pass'));
+   var username =  await driver.findElement(By.id('password'));
   await username.sendKeys('passsword');
   var val =  await driver.findElement(By.id('password')).getAttribute("value");
   assert.strictEqual(val, 'passsword');
