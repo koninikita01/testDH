@@ -30,6 +30,8 @@ jobs:
           BROWSER: ${{matrix.browser}} 
           URL: https://stukstswstagingdh.z33.web.core.windows.net/
           JEST_HTML_REPORTERS_FILE_NAME: TestReport_${{matrix.browser}}.html
+
+      - name : report
         uses: actions/upload-artifact@v2
         with:
           name: Report generated
