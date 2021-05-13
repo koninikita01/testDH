@@ -23,18 +23,20 @@ jobs:
       - run: yarn install
      
       - run : yarn webdriver-manager update
-      
+
       - run : yarn jest /test/TC.test.js --detectOpenHandles --reporters jest-html-reporters  
+        continue-on-error: true
         env:
           BROWSER: ${{matrix.browser}} 
           URL: https://stukstswstagingdh.z33.web.core.windows.net/
           JEST_HTML_REPORTERS_FILE_NAME: TestReport_${{matrix.browser}}.html
-
-      - name: "Test Report"
+     
+      - name : Report
         uses: actions/upload-artifact@v2
         with:
           name: Report generated
-          path: /home/runner/work/testDH/testDH/*.html 
+          path: /home/runner/work/testDH/testDH/*.html   
+        
           
       
 
