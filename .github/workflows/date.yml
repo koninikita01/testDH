@@ -2,7 +2,7 @@ on: [push, pull_request]
 name: build
 jobs:
   build:
-    name: Example
+    name: get YYYYmmddHHmmss from date
     runs-on: ubuntu-latest
     steps:
       - name: Get current date
