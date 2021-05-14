@@ -23,4 +23,4 @@ jobs:
           source: ${{ steps.date.outputs.date }} # this translates to ref/heads/main on the main branch, but can be any arbitrary string 
           find: '-'        # we want to remove ref/heads/ from source 
           replace: ''               # and replace it with a blank string (ie. removing it)
-          run: echo 'formated date is:' + ${{ steps.date.outputs.date }}
+          run: echo ${{ steps.date.outputs.date }}
