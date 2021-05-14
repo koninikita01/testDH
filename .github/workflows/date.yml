@@ -24,3 +24,9 @@ jobs:
           find: '-'        # we want to remove ref/heads/ from source 
           replace: ''               # and replace it with a blank string (ie. removing it)
           run: echo ${{ steps.date.outputs.date }}
+      - name: der
+        uses: frabert/replace-string-action@v1.2
+        with:
+          pattern: 'Hello, (\w+)!'
+          string: 'Hello, world!'
+          replace-with: 'I greet you, $1!'
