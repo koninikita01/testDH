@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M-%S')"
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H-%M-%S')"
       - name: Test with environment variables
         run: echo $TAG_NAME - $RELEASE_NAME
         env:
@@ -17,3 +17,9 @@ jobs:
         uses: actions/hello-world-docker-action@master
         with:
           who-to-greet: Mona-the-Octocat-${{ steps.date.outputs.date }}
+      - name: dsa          
+        uses: mad9000/actions-find-and-replace-string@2
+        with:
+          source: ${{ steps.date.outputs.date }} # this translates to ref/heads/main on the main branch, but can be any arbitrary string 
+          find: '-'        # we want to remove ref/heads/ from source 
+          replace: ''               # and replace it with a blank string (ie. removing it)
