@@ -27,7 +27,7 @@ jobs:
       - name: "Get current timestamp"
         id: get-current-timestamp
         run: |
-          echo ::set-output name=current-timestamp::$( date+''%Y-%m-%d-T%H%M%S)
+          echo ::set-output name=current-timestamp::$( date+%Y-%m-%d-T%H%M%S)
        
       - run : yarn jest /test/TC.test.js --verbose --detectOpenHandles --reporters jest-html-reporters  
         continue-on-error: true
