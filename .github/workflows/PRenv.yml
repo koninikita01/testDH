@@ -23,13 +23,18 @@ jobs:
       - run: yarn install
      
       - run : yarn webdriver-manager update
+      
+      - name: "Get current timestamp"
+        id: get-current-timestamp
+        run: |
+          echo ::set-output name=date::#(date +''%Y-%m-%d-T%H%M%S)
 
       - run : yarn jest /test/TC.test.js --verbose --detectOpenHandles --reporters jest-html-reporters  
         continue-on-error: true
         env:
           BROWSER: ${{matrix.browser}} 
           URL: https://stukstswstagingdh.z33.web.core.windows.net/
-          JEST_HTML_REPORTERS_FILE_NAME: TestReport_${{matrix.browser}}.html
+          JEST_HTML_REPORTERS_FILE_NAME: TestReport_${{matrix.browser}}_${{ steps.date.outputs.date }}.html
           JEST_HTML_REPORTERS_PUBLIC_PATH: ./Reports
 
       - name : report
