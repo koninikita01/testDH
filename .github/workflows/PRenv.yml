@@ -34,7 +34,7 @@ jobs:
         env:
           BROWSER: ${{matrix.browser}} 
           URL: https://stukstswstagingdh.z33.web.core.windows.net/
-          JEST_HTML_REPORTERS_FILE_NAME: TestReport_${{matrix.browser}}_${{ steps.date.outputs.date }}.html
+          JEST_HTML_REPORTERS_FILE_NAME: TestReport_${{matrix.browser}}_${{steps.get-current-timestamp.date}}.html
           JEST_HTML_REPORTERS_PUBLIC_PATH: ./Reports
 
       - name : report
