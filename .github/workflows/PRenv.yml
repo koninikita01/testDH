@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Report generated
-          path: /home/runner/work/testDH/testDH/*.html   
+          path: /home/runner/work/testDH/testDH/Reports/*.html   
         
           
       
