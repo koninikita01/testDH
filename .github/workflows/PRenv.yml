@@ -30,8 +30,7 @@ jobs:
           echo ::set-output name=current-timestamp::$(date +%s)
           echo {{steps.get-current-timestamp.outputs.current-timestamp}}
        
-      - run : yarn jest /test/TC.test.js --verbose --detectOpenHandles --reporters jest-html-reporters  
-        continue-on-error: true
+      - run : yarn jest /test/TC.test.js --verbose --detectOpenHandles --reporters jest-html-reporters 
         env:
           BROWSER: ${{matrix.browser}} 
           URL: https://stukstswstagingdh.z33.web.core.windows.net/
@@ -39,7 +38,8 @@ jobs:
           JEST_HTML_REPORTERS_PUBLIC_PATH: ./Reports
 
       - name : report
-        uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2 
         with:
           name: Report generated
           path: /home/runner/work/testDH/testDH/Reports/*.html   
